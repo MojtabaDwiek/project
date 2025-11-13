@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    
     <!-- Header -->
     <header class="header">
         <nav class="nav container">
@@ -29,137 +30,148 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-container container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span class="title-line">YOUR NEXT</span>
-                    <span class="title-line">CHAPTER</span>
-                    <span class="title-line">IS <span class="here-word">HERE</span></span>
-                </h1>
-                <p class="hero-subtitle">
-                    We help organizations in Lebanon and abroad access the strength of Lebanese talent — building teams that can execute with clarity and ownership.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#services" class="btn btn-primary">Our Services</a>
-                    <a href="#talent" class="btn btn-secondary">For Talent</a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="visual-element">
-                    <div class="circle circle-1"></div>
-                    <div class="circle circle-2"></div>
-                    <div class="circle circle-3"></div>
-                    <div class="glow"></div>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <span>Scroll to explore</span>
-            <div class="arrow"></div>
-        </div>
-    </section>
+   <!-- AI ORB HERO SECTION -->
+<section id="home" class="hero-ai">
+    <canvas id="aiParticles"></canvas>
 
-    <!-- Futuristic Background Design -->
-    <div class="futuristic-bg">
-        <!-- Animated Background Elements -->
-        <div class="bg-element element-1 animate-bg-left"></div>
-        <div class="bg-element element-2 animate-bg-right"></div>
-        <div class="bg-element element-3 animate-bg-top"></div>
-        <div class="bg-element element-4 animate-bg-bottom"></div>
-        <div class="bg-element element-5 animate-bg-left"></div>
-        <div class="bg-element element-6 animate-bg-right"></div>
-        
-        <!-- Masked Images -->
-        <div class="masked-images">
-            <div class="masked-image img-1 animate-mask-left">
-                <div class="image-content">
-                    <h3>AI-Powered Talent Matching</h3>
-                    <p>Advanced algorithms connecting the right talent with the right opportunities</p>
-                </div>
-            </div>
-            <div class="masked-image img-2 animate-mask-right">
-                <div class="image-content">
-                    <h3>Global Talent Network</h3>
-                    <p>Connecting Lebanese professionals with international opportunities</p>
-                </div>
-            </div>
-            <div class="masked-image img-3 animate-mask-top">
-                <div class="image-content">
-                    <h3>Future of Work</h3>
-                    <p>Shaping the next generation of distributed teams and remote collaboration</p>
-                </div>
-            </div>
-            <div class="masked-image img-4 animate-mask-bottom">
-                <div class="image-content">
-                    <h3>Strategic Partnerships</h3>
-                    <p>Building lasting relationships between talent and organizations</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Floating Tech Elements -->
-        <div class="floating-tech">
-            <div class="tech-element tech-1 animate-float-1">
-                <i class="fas fa-microchip"></i>
-            </div>
-            <div class="tech-element tech-2 animate-float-2">
-                <i class="fas fa-network-wired"></i>
-            </div>
-            <div class="tech-element tech-3 animate-float-3">
-                <i class="fas fa-brain"></i>
-            </div>
-            <div class="tech-element tech-4 animate-float-4">
-                <i class="fas fa-rocket"></i>
-            </div>
-            <div class="tech-element tech-5 animate-float-5">
-                <i class="fas fa-chart-network"></i>
-            </div>
-        </div>
-        
-        <!-- Data Stream Elements -->
-        <div class="data-streams">
-            <div class="stream stream-1 animate-stream-1"></div>
-            <div class="stream stream-2 animate-stream-2"></div>
-            <div class="stream stream-3 animate-stream-3"></div>
+    <video class="hero-bg-video" autoplay muted loop playsinline>
+        <source src="https://cdn.coverr.co/videos/coverr-the-future-is-now-9734/1080p.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-overlay"></div>
+
+    <!-- AI ORB -->
+    <div class="ai-orb-container">
+        <div class="ai-orb-core"></div>
+        <div class="ai-orb-ring ring-1"></div>
+        <div class="ai-orb-ring ring-2"></div>
+        <div class="ai-orb-ring ring-3"></div>
+    </div>
+
+    <!-- TEXT -->
+    <div class="hero-ai-content">
+        <h1 class="hero-ai-title">
+            <span>YOUR NEXT</span>
+            <span>CHAPTER</span>
+            <span class="highlight">START HERE</span>
+        </h1>
+
+        <p class="hero-ai-subtitle">
+            A strategic talent partner powered by insight, pattern recognition, and the human touch.
+        </p>
+
+        <div class="hero-ai-buttons">
+            <a href="#services" class="btn btn-primary">Explore Services</a>
+            <a href="#talent" class="btn btn-secondary">For Talent</a>
         </div>
     </div>
 
-    <!-- Why Worktales -->
-    <section id="why-worktales" class="why-worktales section-padding">
-        <div class="container">
-            <h2 class="section-title animate-from-left">Why Worktales</h2>
-            <div class="why-content">
-                <div class="why-text animate-from-left">
-                    <p>Worktales is built for the future of work. We are not traditional recruiters — we come from strategy, operations, and organizational delivery. We understand how culture, pace, and leadership shape performance, and what different environments demand from people.</p>
+    <!-- Scroll Indicator -->
+    <div class="hero-scroll">
+        <span>Scroll</span>
+        <div class="scroll-dot"></div>
+    </div>
+</section>
+
+
+<!-- DIVIDER -->
+<div class="section-divider"></div>
+
+<!-- Futuristic Background Design -->
+<div class="futuristic-bg">
+    <div class="bg-element element-1 animate-bg-left"></div>
+    <div class="bg-element element-2 animate-bg-right"></div>
+    <div class="bg-element element-3 animate-bg-top"></div>
+    <div class="bg-element element-4 animate-bg-bottom"></div>
+    <div class="bg-element element-5 animate-bg-left"></div>
+    <div class="bg-element element-6 animate-bg-right"></div>
+
+    <div class="masked-images">
+        <div class="masked-image img-1 animate-mask-left">
+            <div class="image-content">
+                <h3>AI-Powered Talent Matching</h3>
+                <p>Advanced algorithms connecting the right talent with the right opportunities</p>
+            </div>
+        </div>
+        <div class="masked-image img-2 animate-mask-right">
+            <div class="image-content">
+                <h3>Global Talent Network</h3>
+                <p>Connecting Lebanese professionals with international opportunities</p>
+            </div>
+        </div>
+        <div class="masked-image img-3 animate-mask-top">
+            <div class="image-content">
+                <h3>Future of Work</h3>
+                <p>Shaping the next generation of distributed teams and remote collaboration</p>
+            </div>
+        </div>
+        <div class="masked-image img-4 animate-mask-bottom">
+            <div class="image-content">
+                <h3>Strategic Partnerships</h3>
+                <p>Building lasting relationships between talent and organizations</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="floating-tech">
+        <div class="tech-element tech-1 animate-float-1">
+            <i class="fas fa-microchip"></i>
+        </div>
+        <div class="tech-element tech-2 animate-float-2">
+            <i class="fas fa-network-wired"></i>
+        </div>
+        <div class="tech-element tech-3 animate-float-3">
+            <i class="fas fa-brain"></i>
+        </div>
+        <div class="tech-element tech-4 animate-float-4">
+            <i class="fas fa-rocket"></i>
+        </div>
+        <div class="tech-element tech-5 animate-float-5">
+            <i class="fas fa-chart-network"></i>
+        </div>
+    </div>
+
+    <div class="data-streams">
+        <div class="stream stream-1 animate-stream-1"></div>
+        <div class="stream stream-2 animate-stream-2"></div>
+        <div class="stream stream-3 animate-stream-3"></div>
+    </div>
+</div>
+
+
+<!-- DIVIDER -->
+<div class="section-divider"></div>
+
+<!-- Why Worktales -->
+<section id="why-worktales" class="why-worktales section-padding">
+    <div class="container">
+        <h2 class="section-title animate-from-left">Why Worktales</h2>
+        <div class="why-content">
+            <div class="why-text animate-from-left">
+                 <p>Worktales is built for the future of work. We are not traditional recruiters — we come from strategy, operations, and organizational delivery. We understand how culture, pace, and leadership shape performance, and what different environments demand from people.</p>
                     <p>We evaluate talent through context — not just credentials. Our approach ensures the right person, in the right role, at the right chapter of their career — creating <strong>Worktales worth telling</strong>.</p>
-                </div>
-                <div class="why-visual animate-from-right">
-                    <div class="stats">
-                        <div class="stat">
-                            <span class="stat-number">95%</span>
-                            <span class="stat-text">Placement Success</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">300+</span>
-                            <span class="stat-text">Talents Placed</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">50+</span>
-                            <span class="stat-text">Partner Companies</span>
-                        </div>
-                    </div>
+            </div>
+            <div class="why-visual animate-from-right">
+                <div class="stats">
+                    <div class="stat"><span class="stat-number">95%</span><span class="stat-text">Placement Success</span></div>
+                    <div class="stat"><span class="stat-number">300+</span><span class="stat-text">Talents Placed</span></div>
+                    <div class="stat"><span class="stat-number">50+</span><span class="stat-text">Partner Companies</span></div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Services Section -->
-    <section id="services" class="services section-padding">
-        <div class="container">
-            <h2 class="section-title animate-from-right">What We Offer</h2>
-            <div class="services-grid">
+
+<!-- DIVIDER -->
+<div class="section-divider"></div>
+
+<!-- Services Section -->
+<section id="services" class="services section-padding">
+    <div class="container">
+        <h2 class="section-title animate-from-right">What We Offer</h2>
+
+        <div class="services-grid">
                 <div class="service-card animate-from-bottom">
                     <div class="service-icon">
                         <i class="fas fa-search"></i>
@@ -212,9 +224,8 @@
                     <a href="#contact" class="service-link">Hire in Lebanon</a>
                 </div>
             </div>
-            
-            <!-- Additional Services -->
-            <div class="additional-services">
+
+        <div class="additional-services">
                 <h3 class="section-subtitle animate-from-top">Extended Service Offerings</h3>
                 <div class="additional-services-grid">
                     <div class="additional-service animate-from-left">
@@ -235,14 +246,18 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Partnership Model -->
-    <section class="partnership-model section-padding">
-        <div class="container">
-            <h2 class="section-title animate-from-top">Our Partnership Model</h2>
-            <div class="partnership-content">
+
+<!-- DIVIDER -->
+<div class="section-divider"></div>
+
+<!-- Partnership Model -->
+<section class="partnership-model section-padding">
+    <div class="container">
+        <h2 class="section-title animate-from-top">Our Partnership Model</h2>
+        <div class="partnership-content">
                 <div class="partnership-text animate-from-left">
                     <p>Worktales operates as a <strong>talent partner</strong>, not a transactional recruiter. We work collaboratively with your leadership and hiring managers to understand the <strong>real work</strong> — how decisions are made, how teams collaborate, and what success looks like in your environment.</p>
                     <p>We combine <strong>AI-powered sourcing and pattern recognition</strong> with <strong>human insight</strong> to identify people who can contribute with clarity and maturity.</p>
@@ -269,18 +284,18 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+    </div>
+</section>
 
-    
 
-    
+<!-- DIVIDER -->
+<div class="section-divider"></div>
 
-    <!-- For Talent -->
-    <section id="talent" class="talent section-padding">
-        <div class="container">
-            <h2 class="section-title animate-from-left">For Talent</h2>
-            <div class="talent-content">
+<!-- For Talent -->
+<section id="talent" class="talent section-padding">
+    <div class="container">
+        <h2 class="section-title animate-from-left">For Talent</h2>
+        <div class="talent-content">
                 <div class="talent-text animate-from-left">
                     <h3>Your Next Career Chapter</h3>
                     <p>Your career is a story — shaped by decisions, environments, and timing. We help you move into roles that <strong>make sense for where you are now</strong> and where you want to go next.</p>
@@ -330,8 +345,7 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="talent-cta animate-from-top">
+        <div class="talent-cta animate-from-top">
                 <div class="cta-content">
                     <h3>Ready for Your Next Chapter?</h3>
                     <p>Join the Worktales Talent Network and be considered for roles with organizations in Lebanon and global markets.</p>
@@ -341,12 +355,16 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Insights -->
-    <section id="insights" class="insights section-padding">
-        <div class="container">
+
+<!-- DIVIDER -->
+<div class="section-divider"></div>
+
+<!-- Insights -->
+<section id="insights" class="insights section-padding">
+    <div class="container">
             <h2 class="section-title animate-from-right">Worktales Insights</h2>
             <p class="section-subtitle animate-from-left">Perspectives on work, leadership, and the decisions that shape careers</p>
             
@@ -385,11 +403,15 @@
                 </div>
             </div>
         </div>
-    </section>
+</section>
 
-    <!-- Why Lebanon -->
-    <section id="why-lebanon" class="why-lebanon section-padding">
-        <div class="container">
+
+<!-- DIVIDER -->
+<div class="section-divider"></div>
+
+<!-- Why Lebanon -->
+<section id="why-lebanon" class="why-lebanon section-padding">
+    <div class="container">
             <h2 class="section-title animate-from-right">Why Lebanon</h2>
             <div class="why-content">
                 <div class="why-text animate-from-left">
@@ -419,11 +441,15 @@
                 </div>
             </div>
         </div>
-    </section>
+</section>
 
-    <!-- ARC Framework -->
-    <section id="arc" class="arc section-padding">
-        <div class="container">
+
+<!-- DIVIDER -->
+<div class="section-divider"></div>
+
+<!-- ARC Framework -->
+<section id="arc" class="arc section-padding">
+    <div class="container">
             <h2 class="section-title animate-from-top">The ARC Framework</h2>
             <p class="section-subtitle animate-from-bottom">A simple way to understand whether someone will succeed in your environment</p>
             <div class="arc-cards">
@@ -450,11 +476,15 @@
                 <p>We focus on how people work, not how they interview.</p>
             </div>
         </div>
-    </section>
+</section>
 
-    <!-- Contact -->
-    <section id="contact" class="contact section-padding">
-        <div class="container">
+
+<!-- DIVIDER -->
+<div class="section-divider"></div>
+
+<!-- Contact -->
+<section id="contact" class="contact section-padding">
+    <div class="container">
             <h2 class="section-title animate-from-bottom">Let's Write Your Next Worktale Together</h2>
             <div class="contact-content">
                 <div class="contact-info animate-from-left">
@@ -522,11 +552,15 @@
                 </div>
             </div>
         </div>
-    </section>
+</section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
+
+<!-- DIVIDER -->
+<div class="section-divider"></div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
             <div class="footer-content">
                 <div class="footer-section animate-from-bottom">
                     <h3>Worktales</h3>
@@ -566,8 +600,8 @@
                 <p>&copy; 2023 Worktales. All rights reserved.</p>
             </div>
         </div>
-    </footer>
+</footer>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
