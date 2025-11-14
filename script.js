@@ -266,14 +266,33 @@ document.addEventListener("DOMContentLoaded", () => {
                 } else el.classList.remove("active");
             });
 
-            [...maskedImages].forEach((el, i) => {
-                const top = el.offsetTop;
-                const bottom = top + el.offsetHeight;
+           [...maskedImages].forEach((el, i) => {
+    const rect = el.getBoundingClientRect();
+    const elementTop = rect.top;
+    const elementBottom = rect.bottom;
 
-                if (bottom >= winTop && top <= winBottom) {
-                    setTimeout(() => el.classList.add("active"), i * 280);
-                } else el.classList.remove("active");
-            });
+    const vh = window.innerHeight;
+
+    // Best reveal middle band:
+    const appearTop = vh * 0.30;   // 30%
+    const appearBottom = vh * 0.70; // 70%
+
+    // Safe visibility zone:
+    const hideTop = vh * 0.15;     // 15%
+    const hideBottom = vh * 0.85;  // 85%
+
+    /* --- APPEAR: enters the middle zone --- */
+    if (elementTop < appearBottom && elementBottom > appearTop) {
+        setTimeout(() => el.classList.add("active"), i * 300);
+    }
+
+    /* --- DISAPPEAR: leaves the safe zone --- */
+    if (elementBottom < hideTop || elementTop > hideBottom) {
+        el.classList.remove("active");
+    }
+});
+
+
 
             techElements.forEach((el) => {
                 const top = el.offsetTop;
