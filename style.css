@@ -1,4 +1,4 @@
-/* Base Styles & Variables */
+﻿/* Base Styles & Variables */
 :root {
     --primary: #0f172a;
     --secondary: #1e293b;
@@ -622,13 +622,17 @@ p {
 }
 
 /* Why Lebanon */
-.why-lebanon-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 50px;
-    align-items: center;
+.why-lebanon .container {
+    max-width: 1400px;
+    padding: 0 20px;
 }
 
+.why-lebanon-content {
+    display: grid;
+    grid-template-columns: minmax(360px, 480px) minmax(0, 1fr);
+    gap: 20px;
+    align-items: center;
+}
 .lebanon-stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -641,6 +645,59 @@ p {
     background: rgba(30, 41, 59, 0.7);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cedar-silhouette {
+    width: 100%;
+    max-width: 500px;
+    padding: 50px;
+    border-radius: 24px;
+    background: radial-gradient(circle at 40% 30%, rgba(34, 197, 94, 0.25), rgba(15, 23, 42, 0.2)),
+                linear-gradient(135deg, rgba(15, 23, 42, 0.75), rgba(15, 118, 110, 0.35));
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    box-shadow: 0 30px 45px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cedar-silhouette img {
+    width: 100%;
+    height: auto;
+    max-width: 380px;
+    display: block;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+}
+
+.why-text {
+    background: rgba(30, 41, 59, 0.65);
+    padding: 28px 34px;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    max-width: 860px;
+    width: 100%;
+}
+
+@media (min-width: 992px) {
+    .why-lebanon-content {
+        grid-template-columns: 500px minmax(0, 1fr);
+        gap: 30px;
+    }
+
+    .cedar-silhouette {
+        margin-left: -60px;
+    }
+
+    .why-text {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .cedar-silhouette {
+        margin: 0 auto;
+    }
 }
 
 /* ARC Framework */
@@ -2059,7 +2116,11 @@ p {
 }
 
 .hero-ai-title .highlight {
-    color: var(--accent);
+    color: #ffffff;
+    background: transparent;
+    padding: 0;
+    border: none;
+    font-style: normal;
 }
 
 /* SCROLL */
