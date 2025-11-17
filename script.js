@@ -215,7 +215,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         navLinks.forEach((link) => {
-            link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
+            const target = link.hash || link.getAttribute("href");
+            link.classList.toggle("active", target === `#${current}`);
         });
     }
 
