@@ -342,6 +342,54 @@ document.addEventListener("DOMContentLoaded", () => {
 
     initFuturisticAnimations();
 
+    function initServiceToggles() {
+        const serviceLines = document.querySelectorAll(".service-line");
+        if (!serviceLines.length) return;
+
+        let hasInteractiveLine = false;
+
+        const adjustOpenBodies = () => {
+            document.querySelectorAll(".service-line.open .service-line-body").forEach((body) => {
+                body.style.maxHeight = `${body.scrollHeight}px`;
+            });
+        };
+
+        serviceLines.forEach((line) => {
+            const toggle = line.querySelector(".service-toggle");
+            const body = line.querySelector(".service-line-body");
+            if (!toggle || !body) return;
+
+            hasInteractiveLine = true;
+            const label = toggle.querySelector(".toggle-label");
+
+            body.classList.add("collapsible");
+            body.style.maxHeight = "0px";
+            body.setAttribute("aria-hidden", "true");
+            toggle.setAttribute("aria-expanded", "false");
+
+            toggle.addEventListener("click", () => {
+                const isOpen = line.classList.toggle("open");
+                toggle.setAttribute("aria-expanded", isOpen);
+
+                if (isOpen) {
+                    body.style.maxHeight = `${body.scrollHeight}px`;
+                    body.setAttribute("aria-hidden", "false");
+                    if (label) label.textContent = "Read less";
+                } else {
+                    body.style.maxHeight = "0px";
+                    body.setAttribute("aria-hidden", "true");
+                    if (label) label.textContent = "Read more";
+                }
+            });
+        });
+
+        if (hasInteractiveLine) {
+            window.addEventListener("resize", adjustOpenBodies);
+        }
+    }
+
+    initServiceToggles();
+
     /* ------------------------------------------- */
     /*                INITIALIZE ALL               */
     /* ------------------------------------------- */
