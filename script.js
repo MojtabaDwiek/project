@@ -79,45 +79,69 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const particles = [];
     const MAX_PARTICLES = 120;
+    const PARTICLE_COLOR = "rgba(240,76,35,0.92)"; // branded quarter-circle accent
+    const MIN_PARTICLE_SIZE = 5;
+    const SIZE_VARIATION = 5;
 
     function createParticles() {
         for (let i = 0; i < MAX_PARTICLES; i++) {
             particles.push({
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
-                size: Math.random() * 2 + 1,
+                size: Math.random() * SIZE_VARIATION + MIN_PARTICLE_SIZE,
                 speedX: Math.random() * 0.4 - 0.2,
                 speedY: Math.random() * 0.4 - 0.2,
+                rotation: Math.random() * Math.PI * 2,
+                rotationSpeed: (Math.random() - 0.5) * 0.004,
             });
         }
     }
     createParticles();
 
+    function drawQuarterShape(particle) {
+        ctx.save();
+        ctx.translate(particle.x, particle.y);
+        ctx.rotate(particle.rotation);
+        ctx.fillStyle = PARTICLE_COLOR;
+        ctx.beginPath();
+        const size = particle.size;
+        const offset = size / 2;
+        ctx.moveTo(-offset, -offset);
+        ctx.lineTo(offset, -offset);
+        ctx.arc(-offset, -offset, size, 0, Math.PI / 2);
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+    }
+
     function drawParticles() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         particles.forEach((p) => {
-            ctx.fillStyle = "rgba(96,165,250,0.85)";
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-            ctx.fill();
+            drawQuarterShape(p);
 
             p.x += p.speedX;
             p.y += p.speedY;
+            p.rotation += p.rotationSpeed;
+            p.speedX += (Math.random() - 0.5) * 0.002;
+            p.speedY += (Math.random() - 0.5) * 0.002;
+            p.speedX = Math.max(Math.min(p.speedX, 0.25), -0.25);
+            p.speedY = Math.max(Math.min(p.speedY, 0.25), -0.25);
 
             const dx = p.x - orbX;
             const dy = p.y - orbY;
             const dist = Math.sqrt(dx * dx + dy * dy);
 
             if (dist < 150) {
-                p.x += dx * 0.03;
-                p.y += dy * 0.03;
+                p.x += dx * 0.02;
+                p.y += dy * 0.02;
             }
 
-            if (p.x < 0 || p.x > canvas.width || p.y < 0 || p.y > canvas.height) {
-                p.x = Math.random() * canvas.width;
-                p.y = Math.random() * canvas.height;
-            }
+            const margin = p.size * 2;
+            if (p.x < -margin) p.x = canvas.width + margin;
+            if (p.x > canvas.width + margin) p.x = -margin;
+            if (p.y < -margin) p.y = canvas.height + margin;
+            if (p.y > canvas.height + margin) p.y = -margin;
         });
 
         requestAnimationFrame(drawParticles);
