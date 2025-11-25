@@ -967,24 +967,26 @@ p {
 
 @media (max-width: 768px) {
     .process-stack {
-        --process-card-height: auto;
-        --process-card-top-padding: 0;
-        gap: 20px;
+        --process-card-height: calc(100vh - 180px);
+        --process-card-top-padding: 0.75rem;
+        gap: 16px;
     }
 
     .process-card {
-        position: static;
-        padding-top: 0;
+        position: sticky;
+        top: 90px;
+        padding-top: calc(var(--index, 1) * var(--process-card-top-padding));
     }
 
     .process-card-body {
-        height: auto;
+        height: var(--process-card-height);
     }
 
     .application-process {
         width: 100%;
         margin-left: 0;
         margin-right: 0;
+        padding-top: 32px;
     }
 }
 
