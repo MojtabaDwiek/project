@@ -167,6 +167,37 @@ document.addEventListener("DOMContentLoaded", () => {
         ".animate-from-left, .animate-from-right, .animate-from-top, .animate-from-bottom"
     );
 
+    function seedAdvancedAnimations() {
+        // Assign subtle per-element variation so repeated blocks feel alive
+        animatedElements.forEach((el, index) => {
+            const distance = 0.85 + Math.random() * 0.45;
+            const tilt = (Math.random() * 2 - 1).toFixed(2);
+            const lift = (Math.random() * 18 - 9).toFixed(1);
+            const overshoot = 1.02 + Math.random() * 0.06;
+            const scaleFrom = 0.9 + Math.random() * 0.08;
+            const inlineDelay = parseFloat(el.style.animationDelay) || 0;
+            const delay = Math.min(index * 0.04 + Math.random() * 0.18 + inlineDelay, 1).toFixed(2);
+            const tiltX = (Math.random() * 12 - 6).toFixed(2);
+            const tiltY = (Math.random() * 10 - 5).toFixed(2);
+            const depth = (Math.random() * 60 + 35).toFixed(1);
+            const spinDir = Math.random() > 0.5 ? 1 : -1;
+            const midScale = (1.03 + Math.random() * 0.07).toFixed(3);
+
+            el.style.setProperty("--anim-distance", distance);
+            el.style.setProperty("--anim-tilt", `${tilt}deg`);
+            el.style.setProperty("--anim-tilt-x", `${tiltX}deg`);
+            el.style.setProperty("--anim-tilt-y", `${tiltY}deg`);
+            el.style.setProperty("--anim-lift", `${lift}px`);
+            el.style.setProperty("--anim-delay", `${delay}s`);
+            el.style.setProperty("--anim-overshoot", overshoot.toFixed(3));
+            el.style.setProperty("--anim-scale-from", scaleFrom.toFixed(3));
+            el.style.setProperty("--anim-depth", `${depth}px`);
+            el.style.setProperty("--anim-spin-dir", spinDir);
+            el.style.setProperty("--anim-mid-scale", midScale);
+        });
+    }
+    seedAdvancedAnimations();
+
     function checkElementsInView() {
         const winTop = window.scrollY;
         const winBottom = winTop + window.innerHeight;
