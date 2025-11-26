@@ -870,9 +870,11 @@ p {
 
 .application-process {
     margin-top: 40px;
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 12px;
+    padding-right: 12px;
 }
 
 .process-stack {
@@ -967,9 +969,10 @@ p {
 
 @media (max-width: 768px) {
     .process-stack {
-        --process-card-height: calc(100vh - 180px);
-        --process-card-top-padding: 0.75rem;
-        gap: 16px;
+        /* Mirror desktop stacking feel so the next card peeks through */
+        --process-card-height: min(55vh, 360px);
+        --process-card-top-padding: 1rem;
+        gap: 0;
     }
 
     .process-card {
@@ -2637,6 +2640,12 @@ p {
     }
 
     .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 1200;
         padding: 12px 0;
     }
 

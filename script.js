@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const dy = p.y - orbY;
             const dist = Math.sqrt(dx * dx + dy * dy);
 
-            if (dist < 150) {
+            if (dist < 90) {
                 p.x += dx * 0.02;
                 p.y += dy * 0.02;
             }
