@@ -476,6 +476,14 @@ gap: 30px;
 margin-bottom: 60px;
 }
 
+.services {
+background: #ffffff;
+}
+
+.services .section-title {
+color: #000000;
+}
+
 .services-intro {
 max-width: 780px;
 margin: 0 auto 40px;
