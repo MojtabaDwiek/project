@@ -37,6 +37,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -1880,7 +1881,8 @@ p {
     .nav-menu {
         position: fixed;
         top: 70px;
-        right: -100%;
+        right: 0;
+        transform: translateX(100%);
         flex-direction: column;
         background: var(--secondary);
         width: 80%;
@@ -1891,7 +1893,7 @@ p {
     }
     
     .nav-menu.active {
-        right: 0;
+        transform: translateX(0);
     }
     
     .nav-menu li {
@@ -2669,7 +2671,8 @@ p {
 
     .nav-menu {
         position: fixed;
-        right: -100%;
+        right: 0;
+        transform: translateX(100%);
         top: 60px;
         width: 90%;
         height: calc(100vh - 60px);
@@ -2681,7 +2684,7 @@ p {
     }
 
     .nav-menu.active {
-        right: 0;
+        transform: translateX(0);
     }
 
     .nav-menu a {
