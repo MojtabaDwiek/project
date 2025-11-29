@@ -206,13 +206,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const top = el.offsetTop;
             const bottom = top + el.offsetHeight;
 
-            if (bottom >= winTop && top <= winBottom) {
-                el.classList.add("active");
-                el.classList.remove("inactive");
-            } else if (el.classList.contains("active")) {
-                el.classList.add("inactive");
-                el.classList.remove("active");
-            }
+            // Keep elements always visible (animations disabled)
+            el.classList.add("active");
+            el.classList.remove("inactive");
         });
     }
 
@@ -246,10 +242,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const header = document.querySelector(".header");
 
         if (window.scrollY > 50) {
-            header.style.background = "linear-gradient(90deg, var(--primary), var(--secondary))";
-            header.style.boxShadow = "0 5px 20px rgba(0, 0, 0, 0.15)";
+            header.style.background = "transparent";
+            header.style.boxShadow = "none";
         } else {
-            header.style.background = "linear-gradient(90deg, var(--primary), var(--secondary))";
+            header.style.background = "transparent";
             header.style.boxShadow = "none";
         }
 
