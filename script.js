@@ -159,6 +159,26 @@ document.addEventListener("DOMContentLoaded", () => {
         heroObserver.observe(hero);
     }
 
+    /* Header blur after leaving hero */
+    const header = document.querySelector(".header");
+    if (hero && header) {
+        const headerObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        header.classList.remove("header-glass");
+                    } else {
+                        header.classList.add("header-glass");
+                    }
+                });
+            },
+            { threshold: 0.15 }
+        );
+        headerObserver.observe(hero);
+    } else if (header) {
+        header.classList.add("header-glass");
+    }
+
     /* ------------------------------------------- */
     /*       SECTION ENTRANCE ANIMATIONS           */
     /* ------------------------------------------- */
