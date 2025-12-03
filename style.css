@@ -91,15 +91,7 @@ letter-spacing: 0.04em;
 }
 
 .section-title::after {
-content: '';
-position: absolute;
-bottom: -10px;
-left: 50%;
-transform: translateX(-50%);
-width: 90px;
-height: 3px;
-background: var(--accent);
-border-radius: 2px;
+content: none;
 }
 
 .section-subtitle {
@@ -114,7 +106,7 @@ color: var(--text-secondary);
 .btn {
 display: inline-block;
 padding: 12px 28px;
-border-radius: 4px;
+border-radius: 999px;
 text-decoration: none;
 font-weight: 600;
 transition: var(--transition);
@@ -124,14 +116,14 @@ font-size: 1rem;
 }
 
 .btn-primary {
-background: linear-gradient(135deg, var(--accent), var(--secondary));
+background: var(--accent);
 color: white;
 }
 
 .btn-primary:hover {
-background: linear-gradient(135deg, var(--secondary), var(--accent));
-transform: translateY(-3px);
-box-shadow: 0 10px 20px rgba(239, 80, 35, 0.35);
+background: var(--accent);
+transform: none;
+box-shadow: none;
 }
 
 .btn-secondary {
@@ -141,8 +133,8 @@ border: 2px solid var(--text);
 }
 
 .btn-secondary:hover {
-background: rgba(255, 255, 255, 0.1);
-transform: translateY(-3px);
+background: transparent;
+transform: none;
 }
 
 /* Header */
@@ -253,7 +245,7 @@ animation: gradientShift 6s ease infinite;
 }
 
 .nav-talent-btn:hover {
-transform: translateY(-4px) scale(1.01);
+transform: none;
 }
 
 .nav-toggle {
@@ -1058,7 +1050,6 @@ z-index: 2;
 color: #fff;
 font-weight: 700;
 font-size: clamp(0.9rem, 1.1vw, 1.05rem);
-text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .why-hex-1 {
@@ -1534,11 +1525,8 @@ gap: 22px;
 transform: translateY(0) scale(1);
 align-items: flex-start;
 border: 1px solid rgba(255, 255, 255, 0.14);
-background:
-    radial-gradient(circle at 12% 12%, var(--card-tint), transparent 45%),
-    radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.08), transparent 42%),
-    linear-gradient(150deg, rgba(255, 255, 255, 0.05), rgba(17, 14, 15, 0.92));
-backdrop-filter: blur(14px);
+background: url("assets/bk.png") center / 180% no-repeat;
+backdrop-filter: none;
 overflow: hidden;
 transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease, opacity 0.35s ease;
 }
@@ -2117,7 +2105,6 @@ outline: 2px solid var(--accent);
 outline-offset: 3px;
 }
 
-.service-toggle:hover,
 .service-line.open .service-toggle {
 background: rgba(239, 80, 35, 0.15);
 border-color: rgba(239, 80, 35, 0.6);
@@ -2408,18 +2395,18 @@ position: relative;
 display: grid;
 grid-template-columns: 0.25fr 0.75fr;
 gap: 0;
-border-radius: 36px;
+border-radius: 112px;
 overflow: hidden;
 border: 1px solid rgba(255, 255, 255, 0.12);
 background:
     radial-gradient(circle at 35% 10%, rgba(239, 80, 35, 0.08), transparent 55%),
     linear-gradient(135deg, rgba(0, 0, 0, 0.65), rgba(25, 18, 16, 0.85));
 backdrop-filter: blur(12px);
-box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
+box-shadow: none;
 }
 
 .contact-info-pane {
-padding: 32px 32px 24px;
+padding: 32px 40px 24px 56px;
 border-right: 1px solid rgba(255, 255, 255, 0.08);
 display: grid;
 gap: 6px;
@@ -2524,6 +2511,11 @@ background: rgba(255, 255, 255, 0.06);
 color: var(--text);
 }
 
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+color: rgba(241, 241, 242, 0.65);
+}
+
 .form-group textarea {
 resize: vertical;
 min-height: 160px;
@@ -2540,10 +2532,11 @@ margin-top: 4px;
 @media (max-width: 900px) {
     .contact-card {
         grid-template-columns: 1fr;
-        border-radius: 24px;
+        border-radius: 84px;
     }
 
     .contact-info-pane {
+        padding: 28px 32px 22px 44px;
         border-right: none;
         border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
@@ -3255,14 +3248,14 @@ inset: 0;
 width: 100%;
 height: 100%;
 object-fit: cover;
-filter: brightness(0.30);
+filter: brightness(0.18);
 z-index: -3;
 }
 
 .hero-ai .hero-overlay {
 position: absolute;
 inset: 0;
-background: radial-gradient(circle, rgba(239, 80, 35,0.3), rgba(0,0,0,0.8));
+background: radial-gradient(circle, rgba(239, 80, 35,0.18), rgba(0,0,0,0.88));
 z-index: -2;
 }
 
@@ -3364,13 +3357,7 @@ opacity: 1;
 /* ============================== */
 
 .section-divider {
-width: 100%;
-height: 8px;
-margin: 0px 0;
-background: rgba(239, 80, 35,0.3);
-border-radius: 30px;
-position: relative;
-overflow: hidden;
+display: none;
 }
 
 /* ⚡ WHITE HOT PULSE BEAM (MAIN) */
