@@ -38,115 +38,117 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const orb = document.querySelector(".ai-orb-container");
     const canvas = document.getElementById("aiParticles");
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas ? canvas.getContext("2d") : null;
 
-    let orbX = window.innerWidth / 2;
-    let orbY = window.innerHeight / 2;
-    let targetX = orbX;
-    let targetY = orbY;
+    if (canvas && ctx && orb) {
+        let orbX = window.innerWidth / 2;
+        let orbY = window.innerHeight / 2;
+        let targetX = orbX;
+        let targetY = orbY;
 
-    function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    }
-    resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
-
-    document.addEventListener("mousemove", (e) => {
-        targetX = e.clientX;
-        targetY = e.clientY;
-    });
-
-    let idle = 0;
-
-    function animateOrb() {
-        idle += 0.01;
-
-        orbX += (targetX - orbX) * 0.12;
-        orbY += (targetY - orbY) * 0.12;
-
-        if (Math.abs(targetX - orbX) < 0.5 && Math.abs(targetY - orbY) < 0.5) {
-            orbX += Math.sin(idle) * 0.5;
-            orbY += Math.cos(idle * 0.7) * 0.5;
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
         }
+        resizeCanvas();
+        window.addEventListener("resize", resizeCanvas);
 
-        orb.style.transform = `translate(${orbX - 90}px, ${orbY - 90}px)`;
-        requestAnimationFrame(animateOrb);
-    }
-    animateOrb();
-
-    /* ---------------- PARTICLE FIELD ---------------- */
-
-    const particles = [];
-    const MAX_PARTICLES = 120;
-    const PARTICLE_COLOR = "rgba(240,76,35,0.92)"; // branded quarter-circle accent
-    const MIN_PARTICLE_SIZE = 5;
-    const SIZE_VARIATION = 5;
-
-    function createParticles() {
-        for (let i = 0; i < MAX_PARTICLES; i++) {
-            particles.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                size: Math.random() * SIZE_VARIATION + MIN_PARTICLE_SIZE,
-                speedX: Math.random() * 0.4 - 0.2,
-                speedY: Math.random() * 0.4 - 0.2,
-                rotation: Math.random() * Math.PI * 2,
-                rotationSpeed: (Math.random() - 0.5) * 0.004,
-            });
-        }
-    }
-    createParticles();
-
-    function drawQuarterShape(particle) {
-        ctx.save();
-        ctx.translate(particle.x, particle.y);
-        ctx.rotate(particle.rotation);
-        ctx.fillStyle = PARTICLE_COLOR;
-        ctx.beginPath();
-        const size = particle.size;
-        const offset = size / 2;
-        ctx.moveTo(-offset, -offset);
-        ctx.lineTo(offset, -offset);
-        ctx.arc(-offset, -offset, size, 0, Math.PI / 2);
-        ctx.closePath();
-        ctx.fill();
-        ctx.restore();
-    }
-
-    function drawParticles() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        particles.forEach((p) => {
-            drawQuarterShape(p);
-
-            p.x += p.speedX;
-            p.y += p.speedY;
-            p.rotation += p.rotationSpeed;
-            p.speedX += (Math.random() - 0.5) * 0.002;
-            p.speedY += (Math.random() - 0.5) * 0.002;
-            p.speedX = Math.max(Math.min(p.speedX, 0.25), -0.25);
-            p.speedY = Math.max(Math.min(p.speedY, 0.25), -0.25);
-
-            const dx = p.x - orbX;
-            const dy = p.y - orbY;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-
-            if (dist < 90) {
-                p.x += dx * 0.02;
-                p.y += dy * 0.02;
-            }
-
-            const margin = p.size * 2;
-            if (p.x < -margin) p.x = canvas.width + margin;
-            if (p.x > canvas.width + margin) p.x = -margin;
-            if (p.y < -margin) p.y = canvas.height + margin;
-            if (p.y > canvas.height + margin) p.y = -margin;
+        document.addEventListener("mousemove", (e) => {
+            targetX = e.clientX;
+            targetY = e.clientY;
         });
 
-        requestAnimationFrame(drawParticles);
+        let idle = 0;
+
+        function animateOrb() {
+            idle += 0.01;
+
+            orbX += (targetX - orbX) * 0.12;
+            orbY += (targetY - orbY) * 0.12;
+
+            if (Math.abs(targetX - orbX) < 0.5 && Math.abs(targetY - orbY) < 0.5) {
+                orbX += Math.sin(idle) * 0.5;
+                orbY += Math.cos(idle * 0.7) * 0.5;
+            }
+
+            orb.style.transform = `translate(${orbX - 90}px, ${orbY - 90}px)`;
+            requestAnimationFrame(animateOrb);
+        }
+        animateOrb();
+
+        /* ---------------- PARTICLE FIELD ---------------- */
+
+        const particles = [];
+        const MAX_PARTICLES = 120;
+        const PARTICLE_COLOR = "rgba(240,76,35,0.92)"; // branded quarter-circle accent
+        const MIN_PARTICLE_SIZE = 5;
+        const SIZE_VARIATION = 5;
+
+        function createParticles() {
+            for (let i = 0; i < MAX_PARTICLES; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * SIZE_VARIATION + MIN_PARTICLE_SIZE,
+                    speedX: Math.random() * 0.4 - 0.2,
+                    speedY: Math.random() * 0.4 - 0.2,
+                    rotation: Math.random() * Math.PI * 2,
+                    rotationSpeed: (Math.random() - 0.5) * 0.004,
+                });
+            }
+        }
+        createParticles();
+
+        function drawQuarterShape(particle) {
+            ctx.save();
+            ctx.translate(particle.x, particle.y);
+            ctx.rotate(particle.rotation);
+            ctx.fillStyle = PARTICLE_COLOR;
+            ctx.beginPath();
+            const size = particle.size;
+            const offset = size / 2;
+            ctx.moveTo(-offset, -offset);
+            ctx.lineTo(offset, -offset);
+            ctx.arc(-offset, -offset, size, 0, Math.PI / 2);
+            ctx.closePath();
+            ctx.fill();
+            ctx.restore();
+        }
+
+        function drawParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach((p) => {
+                drawQuarterShape(p);
+
+                p.x += p.speedX;
+                p.y += p.speedY;
+                p.rotation += p.rotationSpeed;
+                p.speedX += (Math.random() - 0.5) * 0.002;
+                p.speedY += (Math.random() - 0.5) * 0.002;
+                p.speedX = Math.max(Math.min(p.speedX, 0.25), -0.25);
+                p.speedY = Math.max(Math.min(p.speedY, 0.25), -0.25);
+
+                const dx = p.x - orbX;
+                const dy = p.y - orbY;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < 90) {
+                    p.x += dx * 0.02;
+                    p.y += dy * 0.02;
+                }
+
+                const margin = p.size * 2;
+                if (p.x < -margin) p.x = canvas.width + margin;
+                if (p.x > canvas.width + margin) p.x = -margin;
+                if (p.y < -margin) p.y = canvas.height + margin;
+                if (p.y > canvas.height + margin) p.y = -margin;
+            });
+
+            requestAnimationFrame(drawParticles);
+        }
+        drawParticles();
     }
-    drawParticles();
 
     /* Scroll reveal for hero */
     if (hero) {
@@ -436,6 +438,54 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     initServiceToggles();
+
+    /* ------------------------------------------- */
+    /*         WHY LEBANON HEX HOVER (JS)          */
+    /* ------------------------------------------- */
+
+    function initWhyHexHover() {
+        const hexes = document.querySelectorAll(".why-hex");
+        if (!hexes.length) return;
+
+        const hideTimers = new WeakMap();
+
+        hexes.forEach((hex) => {
+            const tooltip = hex.querySelector(".hex-tooltip");
+            const side = hex.dataset.side;
+
+            // Ensure tooltip is on the correct side if not already set
+            if (tooltip && !tooltip.classList.contains("hex-tooltip-left") && !tooltip.classList.contains("hex-tooltip-right")) {
+                const isRight = side === "right";
+                tooltip.classList.add(isRight ? "hex-tooltip-right" : "hex-tooltip-left");
+            }
+
+            const activate = () => {
+                const timer = hideTimers.get(hex);
+                if (timer) {
+                    clearTimeout(timer);
+                    hideTimers.delete(hex);
+                }
+                hex.classList.add("is-active");
+                if (tooltip) tooltip.classList.add("is-visible");
+            };
+
+            const deactivate = () => {
+                const timer = setTimeout(() => {
+                    hex.classList.remove("is-active");
+                    if (tooltip) tooltip.classList.remove("is-visible");
+                    hideTimers.delete(hex);
+                }, 120);
+                hideTimers.set(hex, timer);
+            };
+
+            hex.addEventListener("mouseenter", activate);
+            hex.addEventListener("mouseleave", deactivate);
+            hex.addEventListener("focus", activate);
+            hex.addEventListener("blur", deactivate);
+        });
+    }
+
+    initWhyHexHover();
 
     /* ------------------------------------------- */
     /*                INITIALIZE ALL               */

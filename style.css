@@ -983,7 +983,7 @@ filter: drop-shadow(0 0 28px rgba(239, 82, 37, 0.4)) drop-shadow(0 24px 70px rgb
 .why-hex-cluster {
 position: absolute;
 inset: 4% 2%;
-pointer-events: none;
+pointer-events: auto;
 z-index: 2;
 }
 
@@ -999,41 +999,62 @@ transition: transform 0.35s ease, opacity 0.35s ease, filter 0.35s ease;
 isolation: isolate;
 display: grid;
 place-items: center;
+overflow: visible;
 }
 
-.why-hex::before {
-content: "";
+.why-hex::before,
+.why-hex::after {
+content: none;
+}
+
+.hex-surface,
+.hex-outline {
 position: absolute;
 inset: 0;
 clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0 50%);
-border: 2.5px solid rgba(255, 255, 255, 0.9);
 border-radius: 18px;
-background: rgba(255, 255, 255, 0.05);
-backdrop-filter: blur(14px);
--webkit-backdrop-filter: blur(14px);
-box-shadow: 0 18px 38px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+transition: background 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, transform 0.28s ease;
+will-change: transform, background, box-shadow;
+z-index: 0;
+pointer-events: none;
 }
 
-.why-hex::after {
-content: "";
-position: absolute;
-inset: -16%;
-clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0 50%);
-background: radial-gradient(ellipse at center, rgba(239, 82, 37, 0.18), transparent 60%);
-filter: blur(22px);
-opacity: 0.9;
-z-index: -1;
+.hex-surface {
+background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+box-shadow: 0 18px 38px rgba(0, 0, 0, 0.35);
+z-index: 0;
 }
 
-.why-hex:hover {
+.hex-outline {
+border: 2.5px solid rgba(255, 255, 255, 0.45);
+box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+z-index: 1;
+}
+
+.why-hex:hover,
+.why-hex.is-active {
 transform: translate(-50%, -50%) scale(1.04);
 opacity: 1;
 filter: drop-shadow(0 0 22px rgba(239, 82, 37, 0.35));
 }
 
+.why-hex:hover .hex-surface,
+.why-hex.is-active .hex-surface {
+background: #EF5225;
+box-shadow: 0 16px 32px rgba(239, 82, 37, 0.45);
+transform: scale(1.01);
+}
+
+.why-hex:hover .hex-outline,
+.why-hex.is-active .hex-outline {
+border-color: #EF5225;
+box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12);
+transform: scale(1.005);
+}
+
 .why-hex-label {
 position: relative;
-z-index: 1;
+z-index: 2;
 color: #fff;
 font-weight: 700;
 font-size: clamp(0.9rem, 1.1vw, 1.05rem);
@@ -1148,20 +1169,26 @@ font-size: clamp(1rem, 1.6vw, 1.2rem);
 .hex-tooltip {
 position: absolute;
 top: 50%;
-max-width: 240px;
-padding: 14px 16px;
+--tip-offset: 0;
+width: 420px;
+min-height: 120px;
+padding: 16px 18px;
 border-radius: 14px;
-background: linear-gradient(140deg, rgba(0, 0, 0, 0.9), rgba(35, 31, 32, 0.8));
-border: 1px solid rgba(255, 255, 255, 0.08);
-box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+background: rgba(18, 20, 24, 0.75);
+border: none;
+box-shadow: none !important;
+filter: none;
 color: var(--text);
 line-height: 1.5;
 font-weight: 600;
 opacity: 0;
+visibility: hidden;
 pointer-events: none;
+white-space: normal;
 transition: opacity 0.3s ease, transform 0.3s ease;
-transform: translate(var(--tip-offset), -50%) translateY(10px);
-z-index: 3;
+transform: translate(var(--tip-offset), -50%) translateY(10px) scale(0.95);
+z-index: 5;
+text-align: center;
 }
 
 .hex-tooltip::after {
@@ -1172,31 +1199,58 @@ transform: translateY(-50%);
 border: 8px solid transparent;
 }
 
+.hex-tooltip::before {
+content: "";
+position: absolute;
+top: 12px;
+bottom: 12px;
+width: 6px;
+background: transparent;
+border-radius: 6px;
+opacity: 0;
+}
+
 .hex-tooltip-left {
---tip-offset: calc(-100% - 28px);
-right: 50%;
-text-align: right;
+ --tip-offset: calc(-60% - 6px);
+ right: 50%;
+ text-align: center;
 }
 
 .hex-tooltip-left::after {
 right: -16px;
-border-left-color: rgba(0, 0, 0, 0.8);
+border-left-color: transparent;
+}
+
+.hex-tooltip-left::before {
+right: 12px;
 }
 
 .hex-tooltip-right {
---tip-offset: calc(100% + 28px);
-left: 50%;
-text-align: left;
+ --tip-offset: calc(60% + 6px);
+ left: 50%;
+ text-align: center;
+}
+
+/* Bring timezone message closer to center */
+.why-hex-3 .hex-tooltip {
+    --tip-offset: calc(40% + 6px);
 }
 
 .hex-tooltip-right::after {
 left: -16px;
-border-right-color: rgba(0, 0, 0, 0.8);
+border-right-color: transparent;
 }
 
-.why-hex:hover .hex-tooltip {
+.hex-tooltip-right::before {
+left: 12px;
+}
+
+.why-hex:hover .hex-tooltip,
+.why-hex.is-active .hex-tooltip,
+.hex-tooltip.is-visible {
     opacity: 1;
-    transform: translate(var(--tip-offset), -50%) translateY(0);
+    visibility: visible;
+    transform: translate(var(--tip-offset), -50%) translateY(0) scale(1);
 }
 
 @media (max-width: 900px) {
@@ -2368,10 +2422,10 @@ box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
 padding: 32px 32px 24px;
 border-right: 1px solid rgba(255, 255, 255, 0.08);
 display: grid;
-gap: 12px;
+gap: 6px;
 background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(28, 22, 20, 0.6) 55%, rgba(0, 0, 0, 0) 100%);
 position: relative;
-padding-bottom: 110px;
+padding-bottom: 140px;
 }
 
 .contact-info-pane h3 {
@@ -2384,7 +2438,7 @@ display: grid;
 grid-template-columns: auto 1fr;
 gap: 12px;
 align-items: center;
-margin-bottom: 2px;
+margin-bottom: 0;
 }
 
 .contact-item i {
