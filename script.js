@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     /*                AI ORB HERO                  */
     /* ------------------------------------------- */
 
-    const hero = document.querySelector(".hero-ai");
+    const hero = document.querySelector(".hero-ai, .talent-hero");
     const heroScroll = document.querySelector(".hero-scroll");
 
     const orb = document.querySelector(".ai-orb-container");

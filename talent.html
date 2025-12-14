@@ -27,50 +27,46 @@
         </nav>
     </header>
 
-    <section id="home" class="hero-ai talent-hero">
-        <canvas id="aiParticles"></canvas>
+    <section id="home" class="talent-hero">
+        <div class="talent-hero__glow"></div>
+        <img src="assets/g.png" alt="" class="talent-hero__shape" aria-hidden="true">
 
-        <video class="hero-bg-video" autoplay muted loop playsinline>
-            <source src="https://cdn.coverr.co/videos/coverr-the-future-is-now-9734/1080p.mp4" type="video/mp4">
-        </video>
-
-        <div class="hero-overlay"></div>
-
-        <div class="ai-orb-container">
-            <div class="ai-orb-core"></div>
-            <div class="ai-orb-ring ring-1"></div>
-            <div class="ai-orb-ring ring-2"></div>
-            <div class="ai-orb-ring ring-3"></div>
-        </div>
-
-        <div class="hero-ai-content">
-            <p class="hero-eyebrow">For Talent</p>
-            <h1 class="hero-ai-title">
-                <span>Your Career</span>
-                <span>Is a Story</span>
-                <span class="highlight">Worth Telling</span>
-            </h1>
-            <p class="hero-ai-subtitle">
-                Your career is a story &mdash; shaped by decisions, environments, and timing.
-            </p>
-            <p class="hero-ai-subtitle">
-                We help you move into roles that make sense for where you are now and where you want to go next.
-            </p>
-            <p class="hero-ai-subtitle">
-                You can join the Worktales Talent Network or apply directly to open opportunities.
-            </p>
-            <p class="hero-ai-subtitle">
-                Either way, your profile is reviewed with context, nuance, and respect.
-            </p>
-            <div class="hero-ai-buttons">
-                <a href="#services" class="btn btn-primary">Join the Talent Network</a>
-                <a href="#talent-process" class="btn btn-secondary">See Open Positions</a>
+        <div class="container talent-hero__content">
+            <div class="talent-hero__copy">
+                <h1 class="talent-hero__title">
+                    <span>YOUR CAREER IS A&nbsp;STORY</span>
+                    <span class="highlight">WORTH TELLING</span>
+                </h1>
+            </div>
+            <div class="talent-hero__image">
+                <img src="assets/brief.png" alt="Professional carrying a briefcase" loading="lazy">
             </div>
         </div>
 
-        <div class="hero-scroll">
-            <span>Scroll</span>
-            <div class="scroll-dot"></div>
+        <div class="container talent-hero__actions">
+            <article class="hero-action-card">
+                <h3>Join the Worktales Talent Network</h3>
+                <p>Stay connected to curated opportunities that align with your trajectory and timing.</p>
+                <ul>
+                    <li>Quarterly check-ins so we always understand your preferences.</li>
+                    <li>Introductions to teams that value context and culture.</li>
+                    <li>Visibility on roles before they are widely published.</li>
+                </ul>
+                <a href="#services" class="cta-primary">Submit your profile here</a>
+                <small>Prefer email? Send your CV to connect@worktales.com</small>
+            </article>
+
+            <article class="hero-action-card">
+                <h3>Explore Open Roles</h3>
+                <p>View and apply to active positions from Worktales partner organizations.</p>
+                <ul>
+                    <li>Transparent briefs about the role, team, and expectations.</li>
+                    <li>Guidance on how to present the chapters of your experience.</li>
+                    <li>Direct connection to our CRM so your application never disappears.</li>
+                </ul>
+                <a href="#open-roles" class="cta-primary">Explore open roles</a>
+                <small>Browse live roles and apply directly.</small>
+            </article>
         </div>
     </section>
 
