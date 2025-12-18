@@ -16,10 +16,15 @@
                     <span class="sr-only">Worktales</span>
                 </a>
             </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-menu nav-actions">
-                <li><a href="aboutus.html">About Us</a></li>
-                <li><a href="insights.html">Insights</a></li>
-                <li><a href="talent.html">For Talent</a></li>
+                <li><a class="nav-link" href="aboutus.html">About Us</a></li>
+                <li><a class="nav-link" href="insights.html">Insights</a></li>
+                <li><a class="nav-link" href="talent.html">For Talent</a></li>
             </ul>
         </nav>
     </header>
@@ -249,19 +254,19 @@
                                 <input type="email" id="email" name="email" placeholder="Email Address" required>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <select id="subject" name="subject" required>
-                                <option value="">Select an option</option>
-                                <option value="network">Joining the Talent Network</option>
-                                <option value="roles">Questions about Open Roles</option>
-                                <option value="general">Something Else</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
+                            <div class="form-group">
+                                <label for="subject" class="sr-only">Subject</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Subject</option>
+                                    <option value="network">Joining the Talent Network</option>
+                                    <option value="roles">Questions about Open Roles</option>
+                                    <option value="general">Something Else</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message" class="sr-only">Message</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Message" required></textarea>
+                            </div>
                         <button type="submit" class="btn btn-primary contact-submit">Send Message</button>
                     </form>
                 </div>
@@ -270,47 +275,26 @@
     </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
+    <!-- Footer -->
+<footer class="footer">
+    <div class="container">
             <div class="footer-content">
                 <div class="footer-section animate-from-bottom">
                     <img src="assets/worktales.png" alt="Worktales" class="footer-logo-img">
-                    <p>Building bridges between Lebanese talent and global organizations.</p>
+                    <p>&copy; 2023 Worktales. All rights reserved.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                <div class="footer-section animate-from-bottom" style="animation-delay: 0.1s;">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="index.html#services">Recruitment &amp; Executive Search</a></li>
-                        <li><a href="index.html#services">Remote Delivery Centers</a></li>
-                        <li><a href="index.html#services">Employer of Record</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section animate-from-bottom" style="animation-delay: 0.2s;">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="aboutus.html">About Us</a></li>
-                        <li><a href="insights.html">Insights</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section animate-from-bottom" style="animation-delay: 0.3s;">
-                    <h4>Connect</h4>
-                    <ul>
-                        <li><a href="talent.html">For Talent</a></li>
-                        <li><a href="index.html#services">For Employers</a></li>
-                        <li><a href="insights.html">Blog</a></li>
-                    </ul>
-                </div>
+                
+                
+                
             </div>
-            <div class="footer-bottom animate-from-top">
-                <p>&copy; 2023 Worktales. All rights reserved.</p>
-            </div>
+            
         </div>
-    </footer>
+</footer>
+<script src="script.js"></script>
 </body>
 </html>

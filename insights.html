@@ -16,10 +16,15 @@
                     <span class="sr-only">Worktales</span>
                 </a>
             </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-menu nav-actions">
-                <li><a href="aboutus.html">About Us</a></li>
-                <li><a href="insights.html">Insights</a></li>
-                <li><a href="talent.html">For Talent</a></li>
+                <li><a class="nav-link" href="aboutus.html">About Us</a></li>
+                <li><a class="nav-link" href="insights.html">Insights</a></li>
+                <li><a class="nav-link" href="talent.html">For Talent</a></li>
             </ul>
         </nav>
     </header>
@@ -122,51 +127,88 @@
             </div>
         </section>
 
-        
+         <section id="contact" class="contact section-padding">
+        <div class="container">
+            <h2 class="section-title contact-heading animate-from-bottom">Let's Write Your Next Worktale Together</h2>
+            <div class="contact-card">
+                <div class="contact-info-pane animate-from-left">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <p>Beirut, Lebanon</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <p>connect@worktales.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <p>+961 1 234 567</p>
+                        </div>
+                    </div>
+                    <div class="contact-shapes">
+                        <img src="assets/c.png" alt="" aria-hidden="true">
+                    </div>
+                </div>
+                <div class="contact-form-pane animate-from-right">
+                    <h3>Send us a Message</h3>
+                    <form class="contact-form">
+                        <div class="contact-row">
+                            <div class="form-group">
+                                <label for="name" class="sr-only">Full Name</label>
+                                <input type="text" id="name" name="name" placeholder="Full Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="sr-only">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="Email Address" required>
+                            </div>
+                        </div>
+                            <div class="form-group">
+                                <label for="subject" class="sr-only">Subject</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Subject</option>
+                                    <option value="network">Joining the Talent Network</option>
+                                    <option value="roles">Questions about Open Roles</option>
+                                    <option value="general">Something Else</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message" class="sr-only">Message</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Message" required></textarea>
+                            </div>
+                        <button type="submit" class="btn btn-primary contact-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
+   <!-- Footer -->
+<footer class="footer">
+    <div class="container">
             <div class="footer-content">
                 <div class="footer-section animate-from-bottom">
                     <img src="assets/worktales.png" alt="Worktales" class="footer-logo-img">
-                    <p>Building bridges between Lebanese talent and global organizations.</p>
+                    <p>&copy; 2023 Worktales. All rights reserved.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                <div class="footer-section animate-from-bottom" style="animation-delay: 0.1s;">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="index.html#services">Recruitment &amp; Executive Search</a></li>
-                        <li><a href="index.html#services">Remote Delivery Centers</a></li>
-                        <li><a href="index.html#services">Employer of Record</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section animate-from-bottom" style="animation-delay: 0.2s;">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="aboutus.html">About Us</a></li>
-                        <li><a href="insights.html">Insights</a></li>
-                        <li><a href="index.html#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section animate-from-bottom" style="animation-delay: 0.3s;">
-                    <h4>Connect</h4>
-                    <ul>
-                        <li><a href="talent.html">For Talent</a></li>
-                        <li><a href="index.html#services">For Employers</a></li>
-                        <li><a href="insights.html">Blog</a></li>
-                    </ul>
-                </div>
+                
+                
+                
             </div>
-            <div class="footer-bottom animate-from-top">
-                <p>&copy; 2023 Worktales. All rights reserved.</p>
-            </div>
+            
         </div>
-    </footer>
+</footer>
+<script src="script.js"></script>
 </body>
 </html>
-

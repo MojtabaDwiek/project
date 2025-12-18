@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
         navToggle.addEventListener("click", () => {
             navMenu.classList.toggle("active");
             navToggle.classList.toggle("active");
+            document.body.classList.toggle("nav-open", navMenu.classList.contains("active"));
         });
     }
 
@@ -24,7 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
         link.addEventListener("click", () => {
             if (navMenu.classList.contains("active")) {
                 navMenu.classList.remove("active");
-                navToggle.classList.remove("active");
+                navToggle?.classList.remove("active");
+                document.body.classList.remove("nav-open");
             }
         });
     });
