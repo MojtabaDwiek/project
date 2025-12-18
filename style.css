@@ -65,6 +65,7 @@ background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), #000);
 .about-hero {
 padding: clamp(140px, 16vw, 200px) 0 clamp(120px, 12vw, 180px);
 background: #060404;
+margin-bottom: clamp(60px, 8vw, 120px);
 }
 
 .about-hero__grid {
@@ -134,6 +135,7 @@ margin: 0 0 18px;
 font-size: clamp(2rem, 3.4vw, 2.6rem);
 text-transform: uppercase;
 letter-spacing: 0.04em;
+color: #EF5225;
 }
 
 .leader-columns {
@@ -913,6 +915,9 @@ font-size: 1.5rem;
 p {
 margin-bottom: 1rem;
 color: var(--text-secondary);
+font-weight: 700;
+line-height: 1.8;
+font-size: 1.05rem;
 }
 
 .section-title {
@@ -922,6 +927,7 @@ margin: 0 auto 2.5rem;
 text-align: center;
 text-transform: uppercase;
 letter-spacing: 0.04em;
+color: #EF5225;
 }
 
 .section-title::after {
@@ -1344,11 +1350,11 @@ background: radial-gradient(circle at 20% 20%, rgba(239, 80, 35, 0.07), transpar
             radial-gradient(circle at 80% 10%, rgba(239, 80, 35, 0.05), transparent 40%),
             radial-gradient(circle at 50% 90%, rgba(239, 80, 35, 0.08), transparent 45%),
             #000000;
+position: relative;
+overflow: hidden;
+z-index: 1;
 }
 
-.services .section-title {
-color: var(--text);
-}
 
 .services .process-card-body {
  display: flex;
@@ -1477,6 +1483,33 @@ margin-top: 16px;
  font-size: 1.2rem;
  line-height: 1.8;
  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.services .container {
+ position: relative;
+ z-index: 2;
+}
+
+.service-shape {
+ position: absolute;
+ pointer-events: none;
+ opacity: 0.75;
+ filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.35));
+ z-index: 1;
+}
+
+.shape-left {
+ left: -10%;
+ top: -8%;
+ width: clamp(240px, 26vw, 360px);
+}
+
+.shape-right {
+ right: -14%;
+ top: 12%;
+ width: clamp(320px, 36vw, 560px);
 }
 
 .services-actions {
@@ -1672,9 +1705,29 @@ flex-shrink: 0;
 .why-lebanon {
 position: relative;
 overflow: hidden;
-background: var(--primary);
+background: #000;
 color: var(--text);
 min-height: 85vh;
+}
+
+.why-lebanon::before,
+.why-lebanon::after {
+ content: "";
+ position: absolute;
+ inset: 0;
+ pointer-events: none;
+}
+
+.why-lebanon::before {
+ background: url("assets/map.png") center/cover no-repeat;
+ mix-blend-mode: screen;
+ opacity: 0.85;
+ z-index: 3;
+}
+
+.why-lebanon::after {
+ background: radial-gradient(circle at 50% 48%, rgba(239, 82, 35, 0.28) 0%, rgba(0, 0, 0, 0.4) 45%, rgba(0, 0, 0, 0.85) 100%);
+ z-index: 1;
 }
 
 .why-lebanon.section-padding {
@@ -1682,10 +1735,10 @@ padding: 80px 0 20px;
 }
 
 .why-lebanon .container {
-max-width: none;
-padding: 0 clamp(20px, 6vw, 140px);
-position: relative;
-z-index: 2;
+ max-width: none;
+ padding: 0 clamp(20px, 6vw, 140px);
+ position: relative;
+ z-index: 5;
 }
 
 .why-lebanon-heading {
@@ -4832,6 +4885,10 @@ gap: 16px;
 padding: 20px;
 height: auto;
 position: relative;
+}
+
+.service-shape {
+ display: none;
 }
 
 .masked-image {
