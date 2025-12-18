@@ -1737,7 +1737,7 @@ min-height: 85vh;
 .why-lebanon::before {
  background: url("assets/map.png") center/cover no-repeat;
  mix-blend-mode: screen;
- opacity: 0.85;
+ opacity: 0.1;
  z-index: 3;
 }
 
@@ -1913,7 +1913,7 @@ z-index: -1;
 .why-map img {
 width: clamp(500px, 48vw, 760px);
 height: auto;
-opacity: 0.85;
+opacity: 0.5;
 filter: drop-shadow(0 0 28px rgba(239, 82, 37, 0.4)) drop-shadow(0 24px 70px rgba(0, 0, 0, 0.65));
 }
 
