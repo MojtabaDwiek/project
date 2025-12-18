@@ -442,6 +442,58 @@ document.addEventListener("DOMContentLoaded", () => {
     initServiceToggles();
 
     /* ------------------------------------------- */
+    /*     MOBILE SERVICE FEATURE ACCORDIONS       */
+    /* ------------------------------------------- */
+
+    function initFeatureAccordions() {
+        const blocks = document.querySelectorAll(".service-features");
+        if (!blocks.length) return;
+
+        const mql = window.matchMedia("(max-width: 768px)");
+
+        const setupBlock = (block, isMobile) => {
+            const toggle = block.querySelector(".features-toggle");
+            const list = block.querySelector(".feature-list");
+            if (!toggle || !list) return;
+
+            const applyState = (open) => {
+                toggle.setAttribute("aria-expanded", open);
+                list.classList.toggle("is-open", open);
+                list.style.maxHeight = open ? `${list.scrollHeight}px` : "0px";
+                list.setAttribute("aria-hidden", open ? "false" : "true");
+            };
+
+            toggle.onclick = null;
+
+            if (isMobile) {
+                applyState(false);
+                toggle.onclick = () => {
+                    const isOpen = list.classList.contains("is-open");
+                    applyState(!isOpen);
+                };
+            } else {
+                list.style.maxHeight = "none";
+                applyState(true);
+            }
+        };
+
+        const initAll = (isMobile) => blocks.forEach((b) => setupBlock(b, isMobile));
+
+        initAll(mql.matches);
+        mql.addEventListener("change", (e) => initAll(e.matches));
+        window.addEventListener("resize", () => {
+            blocks.forEach((block) => {
+                const list = block.querySelector(".feature-list");
+                if (list && list.classList.contains("is-open")) {
+                    list.style.maxHeight = `${list.scrollHeight}px`;
+                }
+            });
+        });
+    }
+
+    initFeatureAccordions();
+
+    /* ------------------------------------------- */
     /*         WHY LEBANON HEX HOVER (JS)          */
     /* ------------------------------------------- */
 
@@ -449,16 +501,50 @@ document.addEventListener("DOMContentLoaded", () => {
         const hexes = document.querySelectorAll(".why-hex");
         if (!hexes.length) return;
 
+        const scene = document.querySelector(".why-hex-scene");
         const hideTimers = new WeakMap();
+        const prefersTap = window.matchMedia("(pointer: coarse)").matches || window.innerWidth <= 900;
+
+        const clearHexes = () => {
+            hexes.forEach((node) => {
+                const tooltipEl = node.querySelector(".hex-tooltip");
+                const timer = hideTimers.get(node);
+                if (timer) {
+                    clearTimeout(timer);
+                    hideTimers.delete(node);
+                }
+                node.classList.remove("is-active");
+                if (tooltipEl) tooltipEl.classList.remove("is-visible");
+            });
+            if (scene) scene.classList.remove("modal-active");
+        };
 
         hexes.forEach((hex) => {
             const tooltip = hex.querySelector(".hex-tooltip");
+            const label = hex.querySelector(".why-hex-label");
             const side = hex.dataset.side;
 
             // Ensure tooltip is on the correct side if not already set
             if (tooltip && !tooltip.classList.contains("hex-tooltip-left") && !tooltip.classList.contains("hex-tooltip-right")) {
                 const isRight = side === "right";
                 tooltip.classList.add(isRight ? "hex-tooltip-right" : "hex-tooltip-left");
+            }
+
+            if (prefersTap) {
+                hex.addEventListener("click", (event) => {
+                    const isActive = hex.classList.contains("is-active");
+                    clearHexes();
+                    if (!isActive) {
+                        if (tooltip && label) {
+                            tooltip.dataset.title = label.textContent.trim();
+                        }
+                        hex.classList.add("is-active");
+                        if (tooltip) tooltip.classList.add("is-visible");
+                        if (scene) scene.classList.add("modal-active");
+                    }
+                    event.stopPropagation();
+                });
+                return;
             }
 
             const activate = () => {
@@ -474,7 +560,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const deactivate = () => {
                 const timer = setTimeout(() => {
                     hex.classList.remove("is-active");
-                    if (tooltip) tooltip.classList.remove("is-visible");
+                    if (tooltip) {
+                        tooltip.classList.remove("is-visible");
+                    }
                     hideTimers.delete(hex);
                 }, 120);
                 hideTimers.set(hex, timer);
@@ -485,6 +573,14 @@ document.addEventListener("DOMContentLoaded", () => {
             hex.addEventListener("focus", activate);
             hex.addEventListener("blur", deactivate);
         });
+
+        if (prefersTap) {
+            document.addEventListener("click", (event) => {
+                if (![...hexes].some((hex) => hex.contains(event.target))) {
+                    clearHexes();
+                }
+            });
+        }
     }
 
     initWhyHexHover();
