@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
         /* ---------------- PARTICLE FIELD ---------------- */
 
         const particles = [];
-        const MAX_PARTICLES = 120;
+        const MAX_PARTICLES = 60;
         const PARTICLE_COLOR = "rgba(240,76,35,0.92)"; // branded quarter-circle accent
         const MIN_PARTICLE_SIZE = 5;
         const SIZE_VARIATION = 5;

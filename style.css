@@ -449,6 +449,23 @@ color: #f5f6f7;
         padding: 22px 22px 26px;
     }
 
+    .contact-form-pane {
+        text-align: center;
+        justify-items: center;
+    }
+
+    .contact-form {
+        width: 100%;
+        max-width: 520px;
+        margin: 0 auto;
+        padding-right: 0;
+        justify-items: center;
+    }
+
+    .contact-form .form-group {
+        width: 100%;
+    }
+
     .contact-shapes img {
         max-height: 120px;
         object-fit: contain;
@@ -837,13 +854,17 @@ letter-spacing: 0.02em;
 display: inline-flex;
 align-items: center;
 gap: 10px;
-padding: 12px 18px;
+padding: 14px 28px;
 border-radius: 999px;
 border: 2px solid #ef5225;
 color: #f5f6f7;
 text-decoration: none;
 font-weight: 700;
 letter-spacing: 0.02em;
+width: auto;
+min-width: 0;
+justify-self: start;
+align-self: start;
 }
 
 .insight-card__cta:hover {
@@ -881,6 +902,14 @@ color: #fff;
     grid-template-columns: 1fr;
     }
 
+    .insights-hero__image {
+    order: 1;
+    }
+
+    .insights-hero__text {
+    order: 2;
+    }
+
     .insights-hero {
     padding: 120px 0 90px;
     }
@@ -912,6 +941,15 @@ color: #fff;
     font-size: 1.02rem;
     line-height: 1.65;
     text-align: center;
+    }
+
+    .insight-card__cta {
+    padding: 14px 28px;
+    min-width: 0;
+    width: auto;
+    font-size: 1rem;
+    justify-self: start;
+    align-self: start;
     }
 }
 
@@ -4292,6 +4330,11 @@ opacity: 0;
 transition: all 1s ease;
 }
 
+.hero-ai-subtitle {
+color: var(--text);
+opacity: 1;
+}
+
 .hero-ai-buttons {
  display: flex;
  gap: 16px;
@@ -4299,6 +4342,15 @@ transition: all 1s ease;
  align-items: center;
  flex-wrap: wrap;
  justify-content: center;
+}
+
+.hero-ai-buttons .btn,
+.hero-ai-buttons .job-image-link {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+min-width: 240px;
+padding: 14px 28px;
 }
 
 .job-tooltip {
@@ -5159,7 +5211,23 @@ padding: 40px 0 20px;
   }
 
   .why-hex-label {
-    display: none;
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 10px);
+    transform: translateX(-50%);
+    max-width: 160px;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    border: none;
+    color: #f5f6f7;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-align: center;
+    white-space: normal;
+    pointer-events: none;
   }
 
   .hex-tooltip {
@@ -5245,7 +5313,7 @@ padding: 40px 0 20px;
 
   .why-hex-1 { --dot-x: 58%; --dot-y: 32%; }
   .why-hex-2 { --dot-x: 58%; --dot-y: 58%; }
-  .why-hex-3 { --dot-x: 35%; --dot-y: 47%; }
+  .why-hex-3 { --dot-x: 38%; --dot-y: 42%; }
   .why-hex-4 { --dot-x: 35%; --dot-y: 62%; }
 
   .why-hex-scene::before,
@@ -5572,7 +5640,8 @@ padding: 40px 0 20px;
   }
 
   .footer-logo-img {
-    margin: 0 auto 0 12px;
+    height: 44px;
+    margin: 0 auto;
   }
 
   .footer .social-links {
@@ -5583,6 +5652,8 @@ padding: 40px 0 20px;
   }
 
   .footer p {
+    font-size: 0.9rem;
+    line-height: 1.6;
     text-align: center;
   }
 
