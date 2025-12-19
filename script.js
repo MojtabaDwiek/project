@@ -6,6 +6,17 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     /* ------------------------------------------- */
+    /*        IMAGE LOADING OPTIMIZATIONS          */
+    /* ------------------------------------------- */
+    const lazyImages = document.querySelectorAll('img:not([loading])');
+    lazyImages.forEach((img) => {
+        if (img.classList.contains("nav-logo-img")) return;
+        if (img.closest(".hero-ai") || img.closest(".talent-hero") || img.closest(".insights-hero")) return;
+        img.setAttribute("loading", "lazy");
+        img.setAttribute("decoding", "async");
+    });
+
+    /* ------------------------------------------- */
     /*                 NAVIGATION                  */
     /* ------------------------------------------- */
 

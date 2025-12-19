@@ -21,6 +21,8 @@ margin: 0;
 padding: 0;
 box-sizing: border-box;
 font-family: 'Montserrat', sans-serif;
+/* Remove default tap highlight on mobile */
+-webkit-tap-highlight-color: transparent;
 }
 
 img {
