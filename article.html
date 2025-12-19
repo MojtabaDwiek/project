@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worktales | Article</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="assets/worktales.png" alt="Worktales" class="nav-logo-img">
+                    <span class="sr-only">Worktales</span>
+                </a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu nav-actions">
+                <li><a class="nav-link" href="aboutus.html">About Us</a></li>
+                <li><a class="nav-link" href="insights.html">Insights</a></li>
+                <li><a class="nav-link" href="talent.html">For Talent</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="article-page section-padding">
+        <div class="container article-container">
+            <div class="article-header">
+                <h1 id="article-title">Article</h1>
+            </div>
+            <figure class="article-figure">
+                <img id="article-image" src="" alt="Article cover" loading="lazy" decoding="async">
+            </figure>
+            <article class="article-body" id="article-body"></article>
+        </div>
+    </main>
+
+    <script>
+      (function () {
+        const params = new URLSearchParams(window.location.search);
+        const title = params.get("title") ? decodeURIComponent(params.get("title")) : "Article";
+        const img = params.get("img") ? decodeURIComponent(params.get("img")) : "";
+        const titleEl = document.getElementById("article-title");
+        const imgEl = document.getElementById("article-image");
+        const bodyEl = document.getElementById("article-body");
+
+        const articles = {
+          "How to structure your CV for modern hiring systems": `
+            <p><strong>Build a CV that gets through screening systems every single time</strong></p>
+            <p>Your CV isn’t reviewed by a recruiter; first it’s reviewed by a system. Before a human sees your experience, an Applicant Tracking System (ATS) defines how relevant your CV is to move forward. Many strong candidates do not get recommended not because they lack skills, but because their CVs did not qualify to reach the screening stage.</p>
+            <p>ATS-friendly CVs are no longer optional. Before a recruiter ever sees your profile, automated systems evaluate it based on several components this article highlights essential components every modern CV must get right: mandatory fields, clean formatting and layout, and intentional design that supports, not confuses screening systems. When these elements work together, your CV doesn’t just pass filters, it communicates who you are, what you do, and why you’re relevant.</p>
+            <p><strong>What is an ATS?</strong></p>
+            <p>An Applicant Tracking System (ATS) is the backbone of modern hiring operations. Companies and recruiters rely on it to manage high volumes of applications efficiently, saving time by organizing, scanning, ranking, and filtering CVs long before a human recruiter reviews them. Instead of manually sorting hundreds or thousands of profiles, ATS platforms help teams focus their attention only on the most relevant candidates.</p>
+            <p>To do this, the system evaluates CVs based on structure, keyword alignment, and relevance to the role. It looks for clear sectioning, recognizable headings, role-specific terminology, and logical formatting that allows information to be accurately parsed and understood.</p>
+            <p>The reality is simple: even a strong professional profile, when presented in an incompatible format, can be filtered out before it ever reaches a hiring decision maker.</p>
+            <p><strong>Your CV’s First Interview Is with a System</strong></p>
+            <p>ATS systems analyze the text and not the design. It reads from top to bottom, left to right, using recognizable headings. It struggles with columns and tables, icons and graphics, text boxes and images. Example: A two-column CV may look clean to you, but an ATS can merge sections into unreadable text, lowering your match score instantly.</p>
+            <p><strong>The details that make or break your CV</strong></p>
+            <p>ATS systems are designed to standardize and accelerate hiring decisions. To do that, they look for specific data fields and section structures that allow CVs to be parsed, compared, and ranked consistently. When these elements are missing or unclear, the system may treat the profile as incomplete regardless of the candidate’s actual experience.</p>
+            <p><strong>Required contact details: the non-negotiables</strong></p>
+            <p>ATS systems expect two layers of contact information: one to identify you and another to reach you.</p>
+            <ul>
+              <li>Full name – used to uniquely identify your profile in the system</li>
+              <li>Phone number (with country code) – essential for international or remote roles</li>
+              <li>Professional email address – the primary communication channel for recruiters and automated messages</li>
+              <li>Location (City + Country) – used for eligibility, time-zone alignment, and compliance filters</li>
+            </ul>
+            <p>Missing or unclear contact details can prevent your CV from being indexed correctly or contacted later, even if you are shortlisted.</p>
+            <p><strong>Required CV sections: the core sections</strong></p>
+            <p>Creative or unconventional titles may confuse the system and reduce accuracy. Always include these core sections:</p>
+            <p><em>Professional Summary:</em> brief snapshot with job-relevant keywords.</p>
+            <p><em>Skills:</em> keyword-heavy, role-specific tools and competencies; avoid vague traits.</p>
+            <p><em>Professional Experience:</em> reverse chronological, action-based, measurable outcomes.</p>
+            <p><em>Education:</em> degree, field, institution, year.</p>
+            <p><strong>Optional but Valuable Sections:</strong> Certifications; Tools & Software; Languages.</p>
+            <p><strong>Recommended layout & formatting standards</strong></p>
+            <p>One-column layout; standard fonts 10.5–12pt; clear spacing; clarity over visuals.</p>
+            <p><strong>File Format & Length</strong></p>
+            <p>PDF; 1 page for junior, up to 2 for mid/senior.</p>
+            <p><strong>Elements to avoid completely</strong></p>
+            <p>No photos, icons, logos, multi-columns, headers/footers.</p>
+            <p><strong>Before you apply: validate your CV with ATS tools</strong></p>
+            <p>Use tools like Jobscan, Resume Worded, SkillSyncer, Enhancv ATS Check, TopResume ATS Review to scan and optimize.</p>
+            <p><strong>Using AI ethically in your CV</strong></p>
+            <p>Use AI to clarify structure and keywords, never to invent experience.</p>
+            <p><strong>The future of hiring: technology-driven but human-led</strong></p>
+            <p>AI brings speed/structure; humans provide fit, EQ, and accountability.</p>
+            <p><strong>Managing volume without losing the human lens</strong></p>
+            <p>AI surfaces relevance; screening should increase visibility, not auto-reject.</p>
+            <p><strong>Technology doesn’t eliminate bias, responsibility does</strong></p>
+            <p>AI mirrors data; fairness needs oversight.</p>
+            <p><strong>Where automation meets empathy</strong></p>
+            <p>Clear language, faster responses, and trust-driven engagement matter most.</p>
+            <p><strong>The human elements AI cannot replicate</strong></p>
+            <p>Motivation, values, EQ, cultural fit require human judgment.</p>
+            <p><strong>Smart efficiency, thoughtful decisions</strong></p>
+            <p>Hybrid approach: AI for speed/structure; humans for ethics/context.</p>
+            <p><strong>From invisible to in-demand: your LinkedIn profile</strong></p>
+            <p>Key fields: photo, headline, About, experience, skills, banner, contact visibility—keep them clear and consistent.</p>
+            <p><strong>Trust Is the Real Infrastructure of Remote Work</strong></p>
+            <p>Remote work succeeds when trust and clarity are designed into operations.</p>
+            <p><strong>Writing a Compelling CV That Actually Gets Read</strong></p>
+            <p>Your next opportunity should reflect who you are and where you’re headed.</p>
+          `,
+          "The future of hiring: technology-driven but human-led": `
+            <p><strong>The future of hiring: technology-driven but human-led</strong></p>
+            <p>Artificial intelligence is no longer a future concept in recruitment. It is already embedded in how candidates are sourced, screened, and engaged. Yet the most important question is no longer whether AI should be used but how?</p>
+            <p>We believe better hiring does not come from automation alone. It comes from intention. AI creates value only when it supports human judgment, not when it replaces it. Recruitment, at its core, remains a human business one built on trust, context, and long-term thinking.</p>
+            <p><strong>AI’s real role in hiring</strong></p>
+            <p>Before AI, hiring moved slower, roles were more clearly defined, and job titles often remained unchanged for decades. After AI, organizations operated with far more transactions across teams, tools, and geographies. Workflows have become interconnected, responsibilities overlap, and new roles continue to emerge as others evolve. Job titles are no longer static labels, they are reflections of shifting skills, technologies, and business needs.</p>
+            <p>Take two professionals as an example. One spent over thirty years in accounting, building expertise in traditional financial processes. Another shifted careers, as AI reshaped the field, moving into roles that combine finance, data analysis, and systems oversight. Neither path is right or wrong they simply reflect different moments in how work evolves when technology accelerates change.</p>
+            <p>AI plays a critical role in making sense of this complexity. It brings structure to scale, speed to volume, and clarity to data by organizing information, highlighting patterns, and reducing the administrative load recruiters face. By handling large datasets efficiently, AI allows hiring teams to focus less on manual processing and more on meaningful evaluation.</p>
+            <p>But hiring decisions are not technical outcomes. They are human commitments. No system should decide who receives an opportunity without accountability, context, and thoughtful review. AI can inform decisions, surface insights, and support consistency but it should never own the final call.</p>
+            <p>For example, a system may indicate that a candidate matches a role based on skills, experience, and performance data. It may even suggest leadership potential based on measurable indicators. What it cannot fully assess is cultural fit, emotional intelligence, or a person’s ability to lead, inspire, and support a team. These qualities live beyond data points and require human judgment, conversation, and responsibility.</p>
+            <p>AI plays an increasingly important role across the entire candidate lifecycle, from sourcing and screening to communication and follow-up. It helps hiring teams manage large volumes of applications without losing visibility, bringing speed and structure to processes that would otherwise overwhelm recruiters. By organizing data and surfacing relevant profiles, AI supports better judgment but it does not replace it. Every decision still requires human review, context, and accountability.</p>
+            <p><strong>Managing volume without losing the human lens</strong></p>
+            <p>Modern recruitment faces a volume challenge. Roles attract hundreds, sometimes thousands, of applications. AI allows recruiters to process this volume without defaulting to superficial filters or rushed decisions.</p>
+            <p>Used responsibly, AI helps surface relevant experience, identify skill clusters, and group candidates by alignment with role requirements. What it should never become is a silent rejection engine. Screening should be about visibility, not elimination.</p>
+            <p>Our approach is simple: AI highlights potential. Humans define what potential means.</p>
+            <p><strong>Technology doesn’t eliminate bias, responsibility does</strong></p>
+            <p>AI is often presented as a solution to bias. In reality, it is a mirror. Systems learn from historical data, and if that data reflects biased decisions, the output will too.</p>
+            <p>Responsible use means continuous oversight. Outcomes must be reviewed, criteria must be adjusted, and fairness must be actively monitored. Bias reduction is not a feature you switch on it is a process you commit to.</p>
+            <p>We believe accountability sits with people, not systems.</p>
+            <p><strong>Where automation meets empathy</strong></p>
+            <p>Long before interviews begin, AI shapes how candidates experience a hiring process. It influences job descriptions, communication speed, clarity of expectations, and consistency of engagement.</p>
+            <p>When used well, AI enables clearer language, more inclusive messaging, faster responses, and better alignment between role and candidate. The result is not efficiency alone, it is trust.</p>
+            <p>Candidates who feel informed and respected engage more meaningfully. And meaningful engagement leads to better hiring outcomes.</p>
+            <p><strong>The human elements AI cannot replicate</strong></p>
+            <p>There are aspects of hiring that cannot be measured by systems no matter how advanced they become. Motivation, values, emotional intelligence, and cultural alignment live in conversation, observation, and judgment.</p>
+            <p>These elements determine long-term success. They require humans who understand both people and business. Final hiring decisions should always rest with those who carry responsibility for the outcome.</p>
+            <p><strong>Smart efficiency, thoughtful decisions</strong></p>
+            <p>The most effective recruitment systems are hybrid by design. AI brings speed, structure, and scale. Humans bring context, ethics, and accountability. We use AI to remove noise and not to remove people. We believe technology should sharpen human focus, not replace human responsibility. When used with intention, AI becomes a strategic advantage that allows recruiters to hire with clarity, fairness, and purpose.</p>
+            <p>Because in the end, recruitment is not about filling roles. It’s about building relationships that last.</p>
+          `,
+          "Writing a Compelling CV That Actually Gets Read": `
+            <p><strong>Writing a Compelling CV That Actually Gets Read</strong></p>
+            <p><strong>Visibility starts on paper</strong><br>Your CV is often the first conversation you have with a recruiter. In a very short amount of time, it must clearly communicate who you are, what you do, and why your profile is relevant. When a CV is clear and well-structured, it allows the reader to quickly understand your value without effort. The goal is not to impress everyone—it is to make it easy for the right person to recognize your fit. A strong CV feels like a clear introduction, not a dense document. It guides the reader smoothly instead of forcing the reader to search for meaning.</p>
+            <p><strong>The core components of an effective CV</strong><br>Every strong CV is built on three essential elements:<br>1. Presentability – clarity in how it looks<br>2. Structure – logic in how it’s organized<br>3. Content – purpose in what it says<br>These three elements determine whether a quick 15-second scan turns into a deeper read and a next step.</p>
+            <p><strong>1. Presentability: make it easy to read</strong><br>Presentability is the first impression your CV makes before a single word is processed. A presentable CV does not aim to decorate; it aims to communicate clearly.</p>
+            <ul>
+              <li>Use one clear font throughout, with consistent sizing for headings and body text.</li>
+              <li>Maintain balanced spacing so the eye can move comfortably from section to section.</li>
+              <li>Keep your CV to one or two pages maximum.</li>
+              <li>Put portfolios/case studies in a separate link.</li>
+              <li>Avoid photos, icons, or visual elements; they can introduce bias and break ATS parsing.</li>
+            </ul>
+            <p><strong>2. Structure: put information where it’s expected</strong><br>Recruiters expect certain sections in certain places. A logical structure typically includes:</p>
+            <ul>
+              <li><em>Header:</em> Full name, phone, professional email, customized LinkedIn URL, location.</li>
+              <li><em>Professional Summary:</em> A short snapshot of who you are and the value you bring.</li>
+              <li><em>Experience:</em> Written to highlight contribution and impact, not just titles or tasks.</li>
+              <li><em>Skills & Education:</em> Clear education; role-relevant, differentiating skills; languages with proficiency. Avoid hobbies unless they support the role.</li>
+            </ul>
+            <p><em>Seniority note:</em> For junior candidates with limited experience, lead with education, relevant projects, internships, and applied skills.</p>
+            <p><strong>3. Content: say the right things, the right way</strong><br>Tailor your CV to the role. Mirror key responsibilities and keywords from the job description across your summary, skills, and experience. Each bullet should show objective and outcome—specific, measurable where appropriate, and truthful. Avoid task lists and generic phrasing.</p>
+            <p>Example: “Reduced customer response time by 20% by managing daily customer inquiries and organizing follow-up workflows” instead of “Responsible for customer inquiries.”</p>
+            <p><strong>Final thought</strong><br>A well-written CV doesn’t rely on exaggeration or design. It communicates clearly, highlights relevance, and respects the reader’s time. When those elements are in place, your CV becomes a strong entry point into the hiring conversation. If you’ve refined your CV and are ready for the next step, join the Worktales talent community to match opportunities to your experience, potential, and fit.</p>
+          `,
+          "From invisible to in-demand: your LinkedIn profile": `
+            <p><strong>From invisible to in-demand: your LinkedIn profile</strong></p>
+            <p>Your LinkedIn profile is often reviewed before you're contacted. Think of it as your professional window: recruiters glance first, then decide whether to knock. A strong profile doesn't need to be flashy; it needs to be clear, consistent, and credible. Key fields to get right are your profile photo, headline and About section, experience, skills, banner, and contact visibility. If any of these are unclear or inconsistent, trust drops immediately.</p>
+            <p><strong>Step 1: Profile picture (your first impression)</strong><br>Your photo sets the tone for how professional and approachable you appear. Use a clear, high-resolution image against a neutral background with natural lighting and your face fully visible. Look professional but natural?confident, present, and approachable. Avoid filters, group photos, sunglasses, or heavy edits.</p>
+            <p><strong>Step 2: Photo banner & contact information</strong><br>Your banner and contact information should improve visibility and accessibility. Keep the banner clean, simple, and relevant to your field?no clutter or random quotes. Make contact information easy to find and professional so people don't have to search.</p>
+            <p><strong>Step 3: Headline & About section ? one story, two roles</strong><br>Your headline should go beyond a job title, stating what you do, where you add value, and how you do it with keywords recruiters search for. Include focus areas, tools, or outcomes to surface in searches and signal relevance. Example: Customer Success Specialist | CRM & Zendesk | Client Retention & Escalation Management. Write the About section in the first person with short paragraphs that summarize your experience, background, and focus. Keep it authentic, readable, and intentional?help people understand how you think and work, not just where you've worked.</p>
+            <p><strong>Step 3: Experience ? consistency builds trust</strong><br>Your experience must align with your CV?titles, dates, and responsibilities should match. Use clear, direct bullet points for each role, including action-driven responsibilities, tools/systems used, and outcomes where possible.</p>
+            <ul>
+              <li>Managed client accounts from onboarding to delivery</li>
+              <li>Coordinated with internal teams to meet project timelines</li>
+              <li>Used CRM systems to track leads, performance, and follow-ups</li>
+            </ul>
+            <p><strong>Step 4: Skills section ? support, don't decorate</strong><br>List skills that match your background and target roles, reflecting real tools or technical capabilities. Avoid generic traits like motivated or fast learner; skills should validate your profile, not decorate it.</p>
+            <p><strong>Step 6: Additional LinkedIn features that strengthen your profile</strong><br>Use Recommendations for social proof; include only role-related, specific feedback. Feature samples, articles, presentations, or links that support your positioning. Add relevant licenses and certifications. Use Projects for initiatives or freelance work. Configure Open to Work/Hiring preferences intentionally. Thoughtful activity and posts help keep your profile visible.</p>
+            <p><strong>Keeping your profile aligned with who you are today</strong><br>Keep your profile up to date so the right opportunities can find you. As your experience and direction evolve, update how you describe your role, strengths, and value. Each career stage should reflect a clearer, more current version of you.</p>
+          `,
+          "Trust Is the Real Infrastructure of Remote Work": `
+            <p><strong>Trust Is the Real Infrastructure of Remote Work</strong></p>
+            <p>Remote work didn’t break productivity. It exposed leadership gaps. We have seen this repeatedly across distributed teams working between Lebanon, the Gulf, Europe, and North America. When remote work struggles, distance is rarely the problem. Trust is. Without trust, flexibility becomes friction. Autonomy turns into anxiety. Performance declines not because people aren’t capable, but because systems were built for presence, not outcomes.</p>
+            <p>Remote work succeeds only when trust is designed into how teams operate, communicate, and lead. Remote work doesn’t fail because teams are distributed. It fails when leadership models stay rooted in visibility, control, and outdated assumptions. As work moves beyond physical offices, leaders are required to rethink how trust is built, how performance is measured, and how accountability is maintained.</p>
+            <p>The sections below explore the leadership shifts that matter most in remote environments—from redefining trust and outcomes to using documentation, boundaries, and psychological safety as strategic tools for sustainable performance.</p>
+            <p><strong>When visibility disappears, leadership must evolve</strong><br>In offices, trust often hides behind proximity. Managers see people working. Effort feels tangible. Engagement feels obvious. Remote work removes that illusion. Progress, focus, and contribution are no longer visible by default. They must be communicated, structured, and measured intentionally. Organizations respond with control (monitoring, micromanagement) or with clarity (expectations, accountability, confidence). Control signals doubt. Clarity signals trust.</p>
+            <p><strong>Trust is earned through reliability, not presence</strong><br>In remote environments, trust is built quietly and consistently. The professionals who earn trust communicate progress without being asked, flag risks early, and set realistic timelines and honor them. Silence creates uncertainty; proactive communication replaces the reassurance that physical offices once provided.</p>
+            <p><strong>Outcomes are the only currency that matters</strong><br>Remote trust has nothing to do with screen time. Being constantly online doesn’t build confidence. Delivering consistently does. Clear expectations and measurable success make autonomy feel empowered, not risky. Consistency builds confidence. Confidence builds trust.</p>
+            <p><strong>Documentation is a leadership tool, not an admin task</strong><br>High-trust remote teams rely on clarity: written decisions, documented processes, shared updates. If it’s not documented, it’s not scalable. Documentation reduces ambiguity, prevents misalignment, and ensures accountability without surveillance.</p>
+            <p><strong>Boundaries don’t limit flexibility, they protect it</strong><br>Trust erodes when expectations are unclear. Remote professionals build credibility by managing time responsibly, respecting agreed hours, and communicating availability clearly. Boundaries are trust-builders: they enable planning, collaboration, and dependable teamwork.</p>
+            <p><strong>Trust is a leadership decision, not a personality trait</strong><br>Trust grows when leaders choose clarity over control. Micromanagement communicates fear. Clear roles, performance indicators, and success criteria communicate confidence. Measuring outcomes instead of activity creates autonomy without chaos.</p>
+            <p><strong>Psychological safety is the backbone of remote performance</strong><br>Trust deepens when people feel safe. Welcomed questions, blameless mistake handling, and open concerns create a performance multiplier. Fear erodes trust. Safety sustains it.</p>
+            <p><strong>Trust lives in consistency, not occasional check-ins</strong><br>Trust thrives in rhythm: regular check-ins, transparent decisions, consistent leadership communication. Predictability creates stability; stability reinforces trust.</p>
+            <p>Remote work doesn’t require more communication. It requires better communication.</p>
+          `
+        };
+
+        const fallback = `<p>Content coming soon.</p>`;
+
+        if (titleEl) titleEl.textContent = title;
+        if (imgEl) {
+          if (img) {
+            imgEl.src = img;
+            imgEl.alt = title;
+          } else {
+            imgEl.style.display = "none";
+          }
+        }
+        if (bodyEl) {
+          bodyEl.innerHTML = articles[title] || fallback;
+        }
+      })();
+    </script>
+    <script src="script.js" defer></script>
+</body>
+</html>

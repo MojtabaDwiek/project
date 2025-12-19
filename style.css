@@ -5257,7 +5257,7 @@ padding: 40px 0 20px;
     gap: 6px;
   }
 
-  .why-tooltip-list li {
+.why-tooltip-list li {
     font-size: 0.9rem;
     padding: 6px 0;
     border: none;
@@ -5271,6 +5271,91 @@ padding: 40px 0 20px;
 
   .why-hex-scene.modal-active::after {
     display: none;
+  }
+}
+
+/* Article page */
+.article-page {
+  background: #050505;
+}
+
+.article-container {
+  max-width: none;
+  margin: 0 auto;
+  display: grid;
+  gap: 24px;
+  padding: 0 clamp(20px, 6vw, 120px);
+}
+
+.article-header {
+  display: block;
+}
+
+.article-header h1 {
+  margin: 0;
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  text-align: center;
+}
+
+.back-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.article-figure {
+  margin: 32px auto 0;
+}
+
+.article-figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45);
+}
+
+.article-body {
+  display: grid;
+  gap: 12px;
+  line-height: 1.7;
+  color: #e6e6e6;
+  font-size: 1rem;
+}
+
+.article-body p,
+.article-body li {
+  color: #fff;
+  font-weight: 700;
+}
+
+.article-body ul {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 6px;
+}
+
+.article-body strong {
+  color: #EF5225;
+  font-weight: 700;
+}
+
+@media (min-width: 992px) {
+  .article-body {
+    grid-template-columns: 1fr;
+    max-width: 1600px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+  }
+
+  .article-figure img {
+    max-width: 1600px;
+    margin: 0 auto;
+    display: block;
   }
 }
 
@@ -5332,6 +5417,13 @@ padding: 40px 0 20px;
     z-index: 1;
   }
 
+  /* Disable button hover effects on mobile */
+  .btn:hover,
+  .btn:focus {
+    transform: none;
+    box-shadow: none;
+  }
+
   .contact-shapes {
     display: none;
   }
@@ -5345,6 +5437,14 @@ padding: 40px 0 20px;
     opacity: 0.35;
     filter: blur(2px) drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
     transform: translateY(-10px);
+  }
+
+  /* Disable hover reveal on hero buttons for mobile */
+  .job-tooltip:hover .job-tooltip-text,
+  .job-tooltip:focus-within .job-tooltip-text {
+    opacity: 0;
+    pointer-events: none;
+    display: none;
   }
 
   /* Simplify backgrounds for full-page black on mobile (except hero) */
@@ -5365,6 +5465,22 @@ padding: 40px 0 20px;
 
   .process-card {
     margin: 0;
+  }
+
+  /* Disable hover lift on mobile for Worktales Way cards */
+  .process-stack:hover .process-card-body {
+    opacity: 1;
+    filter: none;
+  }
+
+  .process-card:hover .process-card-body,
+  .process-card:focus-within .process-card-body,
+  .process-card:hover .process-card-body::after,
+  .process-card:focus-within .process-card-body::after {
+    transform: none;
+    box-shadow: none;
+    border-color: rgba(255, 255, 255, 0.16);
+    opacity: 1;
   }
 
   .service-features {
