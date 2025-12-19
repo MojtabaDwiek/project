@@ -3581,6 +3581,37 @@ font-size: 1rem;
     }
 }
 
+/* Desktop footer alignment */
+@media (min-width: 769px) {
+    .footer-content > .footer-section:first-child {
+        grid-template-rows: auto;
+    }
+
+    .footer-content > .footer-section:first-child .footer-logo-img {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .footer-content > .footer-section:first-child p {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .footer-content > .footer-section:first-child .social-links {
+        grid-column: 3;
+        grid-row: 1 / span 2;
+        align-self: center;
+        justify-content: flex-end;
+        margin-left: auto;
+        transform: translateY(-4px);
+    }
+
+    .social-links a {
+        width: 70px;
+        height: 70px;
+    }
+}
+
 /* Animations */
 @keyframes pulse {
 0%, 100% {
@@ -4656,6 +4687,16 @@ border-color: rgba(239, 82, 41, 0.6);
 
     .hero-action-card {
     align-items: flex-start;
+    }
+}
+
+@media (min-width: 1025px) {
+    .talent-hero__actions {
+        align-items: stretch;
+    }
+
+    .hero-action-card {
+        height: 100%;
     }
 }
 
