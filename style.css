@@ -457,7 +457,7 @@ color: #f5f6f7;
     .contact-form {
         width: 100%;
         max-width: 520px;
-        margin: 0 auto;
+        margin: 0 auto 0 12px;
         padding-right: 0;
         justify-items: center;
     }
@@ -4986,7 +4986,7 @@ bottom: 20px;
 }
 
     .talent-hero {
-    padding: 110px 0 60px;
+    padding: 110px 0 140px;
     min-height: auto;
     }
 
@@ -4998,20 +4998,22 @@ gap: 32px;
 
 .talent-hero__copy {
 align-items: center;
+z-index: 5;
 }
 
   .talent-hero__title {
     font-size: 1.8rem !important;
-    transform: translateY(-90px);
-    margin-top: 0;
+    transform: translateY(18px);
+    margin-top: 12px;
   }
 
-    .talent-hero__image {
+  .talent-hero__image {
     position: relative;
     right: auto;
     bottom: auto;
     justify-content: center;
     margin: 0 auto;
+    z-index: 4;
     }
 
     .talent-hero__image img {
@@ -5028,6 +5030,7 @@ opacity: 0.6;
 .talent-hero__actions {
 flex-direction: column;
 align-items: stretch;
+margin-top: 180px;
 }
 
 .cta-card {
@@ -5663,12 +5666,23 @@ padding: 40px 0 20px;
   }
 
   .talent-hero__content {
-    margin-top: -24px;
-    transform: translateY(-36px);
+    margin-top: 0;
+    transform: translateY(20px);
+  }
+
+  .talent-hero__image {
+    position: absolute;
+    left: 50%;
+    top: -36px;
+    margin: 0;
+    transform: translateX(-50%) translateY(-48px);
+    z-index: 4;
+    width: min(440px, 90vw);
   }
 
   .talent-hero__image img {
-    display: none;
+    display: block;
+    width: 100%;
   }
 
   .talent-hero__shape {
@@ -5676,7 +5690,7 @@ padding: 40px 0 20px;
     top: 7%;
     width: min(440px, 90vw);
     opacity: 0.6;
-    z-index: 2;
+    z-index: 0;
     transform: translateX(-4px) translateY(-8px);
   }
 }
