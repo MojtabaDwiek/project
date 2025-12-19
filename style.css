@@ -453,12 +453,23 @@ color: #f5f6f7;
     }
 
     .insights-hero__image img {
-        max-width: min(420px, 90vw);
+        max-width: min(320px, 80vw);
         width: 100%;
     }
 
     .insights-hero__image::before {
         inset: 0;
+    }
+
+    .insights-hero__title {
+        font-size: clamp(1.8rem, 7vw, 2.2rem);
+        text-align: center;
+    }
+
+    .insights-hero__lead {
+        font-size: 1rem;
+        line-height: 1.6;
+        text-align: center;
     }
 
     img[src*="Frame 48095570"] {
@@ -883,6 +894,22 @@ color: #fff;
 
     .insight-card__thumb {
     height: 220px;
+    }
+
+    .insights-hero__image img {
+    max-width: min(420px, 88vw);
+    width: 100%;
+    }
+
+    .insights-hero__title {
+    font-size: clamp(2rem, 5.5vw, 2.6rem);
+    text-align: center;
+    }
+
+    .insights-hero__lead {
+    font-size: 1.02rem;
+    line-height: 1.65;
+    text-align: center;
     }
 }
 
@@ -4831,7 +4858,11 @@ height: 32px;
     .hero-ai {
     height: auto;
     min-height: calc(100vh - 80px);
-    padding: 100px 16px 60px;
+    padding: 100px 16px 80px;
+    }
+
+    .hero-ai-content {
+        transform: translateY(-10px);
     }
 
 .hero-bg-video {
@@ -4847,6 +4878,12 @@ font-size: 2rem !important;
 
 .hero-ai-content {
 padding: 0 10px;
+transform: translateY(-60px);
+padding-top: 0;
+}
+
+.hero-ai.active .hero-ai-content {
+    transform: translateY(-60px);
 }
 
 .hero-scroll {
@@ -4868,9 +4905,11 @@ gap: 32px;
 align-items: center;
 }
 
-.talent-hero__title {
-font-size: 1.8rem !important;
-}
+  .talent-hero__title {
+    font-size: 1.8rem !important;
+    transform: translateY(-90px);
+    margin-top: 0;
+  }
 
     .talent-hero__image {
     position: relative;
@@ -5386,5 +5425,28 @@ padding: 40px 0 20px;
 
   .footer p {
     text-align: center;
+  }
+
+  /* Talent hero mobile adjustments */
+  .talent-hero__glow {
+    z-index: -1;
+  }
+
+  .talent-hero__content {
+    margin-top: -24px;
+    transform: translateY(-36px);
+  }
+
+  .talent-hero__image img {
+    display: none;
+  }
+
+  .talent-hero__shape {
+    right: 4%;
+    top: 7%;
+    width: min(440px, 90vw);
+    opacity: 0.6;
+    z-index: 2;
+    transform: translateX(-4px) translateY(-8px);
   }
 }
