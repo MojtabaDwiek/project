@@ -466,6 +466,13 @@ color: #f5f6f7;
         width: 100%;
     }
 
+    .contact-form .form-group textarea {
+        min-height: 0;
+        height: 52px;
+        border-radius: 999px;
+        resize: none;
+    }
+
     .contact-shapes img {
         max-height: 120px;
         object-fit: contain;
@@ -5003,8 +5010,8 @@ z-index: 5;
 
   .talent-hero__title {
     font-size: 1.8rem !important;
-    transform: translateY(18px);
-    margin-top: 12px;
+    transform: translateY(4px);
+    margin-top: 4px;
   }
 
   .talent-hero__image {
@@ -5672,10 +5679,10 @@ padding: 40px 0 20px;
 
   .talent-hero__image {
     position: absolute;
-    left: 50%;
+    left: 54%;
     top: -36px;
     margin: 0;
-    transform: translateX(-50%) translateY(-48px);
+    transform: translateX(-50%) translateY(-64px);
     z-index: 4;
     width: min(440px, 90vw);
   }
@@ -5686,11 +5693,6 @@ padding: 40px 0 20px;
   }
 
   .talent-hero__shape {
-    right: 4%;
-    top: 7%;
-    width: min(440px, 90vw);
-    opacity: 0.6;
-    z-index: 0;
-    transform: translateX(-4px) translateY(-8px);
+    display: none;
   }
 }
