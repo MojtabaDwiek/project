@@ -325,7 +325,29 @@ document.addEventListener("DOMContentLoaded", () => {
     if (contactForm) {
         contactForm.addEventListener("submit", (e) => {
             e.preventDefault();
-            alert("Thank you! We will get back to you shortly.");
+            const formData = new FormData(contactForm);
+            const name = (formData.get("name") || "").toString().trim();
+            const email = (formData.get("email") || "").toString().trim();
+            const subjectValue = (formData.get("subject") || "").toString().trim();
+            const message = (formData.get("message") || "").toString().trim();
+            const subjectSelect = contactForm.querySelector("select[name='subject']");
+            const subjectText = subjectSelect?.options?.[subjectSelect.selectedIndex]?.text || subjectValue;
+            const mailSubject =
+                subjectText && subjectText !== "Subject"
+                    ? `Contact: ${subjectText}`
+                    : "Contact Form Message";
+            const bodyLines = [
+                `Name: ${name || "-"}`,
+                `Email: ${email || "-"}`,
+                `Subject: ${subjectText || subjectValue || "-"}`,
+                "",
+                "Message:",
+                message || "-",
+            ];
+            const mailtoLink = `mailto:Info@worktales.com?subject=${encodeURIComponent(
+                mailSubject
+            )}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+            window.location.href = mailtoLink;
             contactForm.reset();
         });
     }

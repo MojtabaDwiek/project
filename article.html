@@ -314,11 +314,19 @@
         };
 
         const fallback = `<p>Content coming soon.</p>`;
+        const imageMap = {
+          "How to structure your CV for modern hiring systems": "assets/r8.jpg",
+          "Trust Is the Real Infrastructure of Remote Work": "assets/r2.jpg",
+          "The future of hiring: technology-driven but human-led": "assets/r3.jpg",
+          "Writing a Compelling CV That Actually Gets Read": "assets/r6.jpg",
+          "From invisible to in-demand: your LinkedIn profile": "assets/r7.jpg"
+        };
+        const resolvedImg = imageMap[title] || img;
 
         if (titleEl) titleEl.textContent = title;
         if (imgEl) {
-          if (img) {
-            imgEl.src = img;
+          if (resolvedImg) {
+            imgEl.src = resolvedImg;
             imgEl.alt = title;
           } else {
             imgEl.style.display = "none";
