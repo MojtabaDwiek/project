@@ -396,6 +396,7 @@ color: #f5f6f7;
 
     .leader-title {
         font-size: clamp(1.6rem, 6vw, 2rem);
+        white-space: normal;
     }
 
     .leader-columns {
@@ -1630,6 +1631,15 @@ margin-top: 16px;
  color: #F2F2F2;
  font-size: 1.05rem;
  line-height: 1.65;
+}
+
+@media (max-width: 768px) {
+  .services .service-body-left p {
+    display: block;
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: initial;
+    overflow: visible;
+  }
 }
 
 .worktales-lead {
