@@ -1687,8 +1687,12 @@ margin-top: 16px;
         padding-top: 200px;
     }
 
+    .services .section-title {
+        margin-bottom: 1.5rem;
+    }
+
     .services-intro {
-        margin-bottom: 200px;
+        margin-bottom: 150px;
     }
 }
 
