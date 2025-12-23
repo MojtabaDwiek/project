@@ -110,6 +110,8 @@ font-size: clamp(1.8rem, 3.2vw, 2.6rem);
 margin: 0;
 max-width: 720px;
 color: #d9dcde;
+font-weight: 400;
+text-align: justify;
 }
 
 .leader-message {
@@ -152,8 +154,9 @@ margin-bottom: 16px;
 margin: 0;
 color: #f5f6f7;
 font-size: clamp(1.05rem, 1.05vw, 1.1rem);
-font-weight: 700;
+font-weight: 400;
 line-height: 2;
+text-align: justify;
 }
 
 .leader-signoff {
@@ -246,6 +249,7 @@ font-size: 1rem;
 .principle p {
   margin: 0;
   color: #d9dcde;
+  font-weight: 400;
   line-height: 1.6;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -319,6 +323,7 @@ color: #f5f6f7;
     color: #d9dcde;
     line-height: 1.7;
     font-size: 1.02rem;
+    font-weight: 400;
 }
 
 .faq-item[open] summary i {
@@ -655,6 +660,8 @@ color: #d9dcde;
 font-size: 1.05rem;
 line-height: 1.7;
 margin: 0;
+font-weight: 400;
+text-align: justify;
 }
 
 .page-section {
@@ -889,6 +896,12 @@ font-size: 1.08rem;
 line-height: 1.35;
 text-transform: uppercase;
 letter-spacing: 0.02em;
+}
+
+@media (min-width: 992px) {
+  .insight-card__body h3 {
+    max-width: 34ch;
+  }
 }
 
 .insight-card__points {
@@ -1627,7 +1640,7 @@ color: var(--text-secondary);
  align-items: center;
  gap: 12px;
  padding-left: 0;
- font-weight: 600;
+ font-weight: 400;
  color: #F2F2F2;
  letter-spacing: 0.01em;
  line-height: 1.5;
@@ -1665,6 +1678,8 @@ margin-top: 16px;
  color: #F2F2F2;
  font-size: 1.05rem;
  line-height: 1.65;
+ font-weight: 400;
+ text-align: center;
 }
 
 @media (min-width: 992px) {
@@ -1691,6 +1706,7 @@ margin-top: 16px;
  font-size: 1.2rem;
  line-height: 1.8;
  margin: 0 auto;
+ font-weight: 400;
   position: relative;
   z-index: 2;
 }
@@ -1718,6 +1734,12 @@ margin-top: 16px;
  right: -14%;
  top: 12%;
  width: clamp(320px, 36vw, 560px);
+}
+
+@media (min-width: 992px) {
+  .shape-right {
+    right: -16%;
+  }
 }
 
 .services-actions {
@@ -1962,6 +1984,8 @@ color: #F2F2F2;
 margin-top: 12px;
 font-size: clamp(1rem, 1.4vw, 1.15rem);
 line-height: 1.65;
+font-weight: 400;
+text-align: center;
 }
 
 .why-lebanon-layout {
@@ -2341,7 +2365,7 @@ text-align: center;
  padding: 0;
  display: grid;
  gap: 10px;
- text-align: center;
+ text-align: left;
 }
 
 .why-tooltip-list li {
@@ -2353,7 +2377,7 @@ text-align: center;
  border-radius: 12px;
  display: inline-flex;
  align-items: center;
- justify-content: center;
+ justify-content: flex-start;
  gap: 8px;
  line-height: 1.4;
 }
@@ -3348,7 +3372,7 @@ color: var(--accent);
 
 .contact-item p {
 margin: 0;
-font-weight: 700;
+font-weight: 400;
 color: var(--text);
 }
 
@@ -4464,6 +4488,13 @@ transition: all 1s ease;
 .hero-ai-subtitle {
 color: #F2F2F2;
 opacity: 1;
+font-weight: 400;
+text-align: center;
+}
+
+.hero-ai-content p {
+  font-weight: 400;
+  text-align: center;
 }
 
 .hero-ai-buttons {
@@ -4755,7 +4786,7 @@ gap: 10px;
 position: relative;
 padding-left: 20px;
 color: #f6f6f7;
-font-weight: 600;
+font-weight: 400;
 }
 
 .hero-action-card ul li::before {
@@ -4800,7 +4831,7 @@ box-shadow: 0 16px 38px rgba(0, 0, 0, 0.55);
 .hero-action-card small {
 margin-top: 6px;
 color: #dcdce0;
-font-weight: 600;
+font-weight: 400;
 letter-spacing: 0.01em;
 }
 
@@ -5464,7 +5495,7 @@ padding: 40px 0 20px;
     padding: 6px 0;
     border: none;
     background: transparent;
-    text-align: center;
+    text-align: left;
   }
 
   .why-tooltip-list li::before {
@@ -5526,12 +5557,13 @@ padding: 40px 0 20px;
   line-height: 1.7;
   color: #e6e6e6;
   font-size: 1rem;
+  text-align: justify;
 }
 
 .article-body p,
 .article-body li {
   color: #F2F2F2;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .article-body ul {
@@ -5743,7 +5775,7 @@ padding: 40px 0 20px;
     position: relative;
     padding-left: 14px;
     color: var(--text);
-    font-weight: 600;
+    font-weight: 400;
   }
 
   .feature-list li::before {
