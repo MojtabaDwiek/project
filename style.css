@@ -5468,15 +5468,8 @@ padding: 40px 0 20px;
   }
 
   .hex-tooltip::before {
-    content: attr(data-title);
-    font-weight: 700;
-    font-size: 0.82rem;
-    letter-spacing: 0.01em;
-    text-transform: none;
-    color: #EF5225;
-    display: block;
-    margin-bottom: 6px;
-    text-align: center;
+    content: none;
+    display: none;
   }
 
   .why-hex.is-active {
@@ -5510,7 +5503,7 @@ padding: 40px 0 20px;
   }
 
 .why-tooltip-list li {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     padding: 6px 0;
     border: none;
     background: transparent;
