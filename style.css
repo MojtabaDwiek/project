@@ -3500,6 +3500,16 @@ min-width: 0;
     .contact-row {
         grid-template-columns: 1fr;
     }
+
+    .contact-form .form-group input,
+    .contact-form .form-group select,
+    .contact-form .form-group textarea {
+        height: 52px;
+        min-height: 52px;
+        max-height: 52px;
+        border-radius: 999px;
+        resize: none;
+    }
 }
 
 /* Subscribe */
@@ -5902,9 +5912,14 @@ padding: 40px 0 20px;
   }
 }
 
-
-
-
-
-
-
+@media (max-width: 600px) {
+    .contact-form .form-group input,
+    .contact-form .form-group select,
+    .contact-form .form-group textarea {
+        height: 52px;
+        min-height: 52px;
+        max-height: 52px;
+        border-radius: 999px;
+        resize: none;
+    }
+}
